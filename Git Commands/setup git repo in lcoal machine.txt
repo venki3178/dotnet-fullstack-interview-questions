@@ -1,0 +1,8 @@
+step 1: copy the repo url from git 
+step 2: create folder in local machine( EX:sample-prject)
+step 3: clone the git repository using "git clone" command in the newly created folder(sample-project)
+step 4: create new angular/dotnet project from newly created folder(sample-project)
+step 5: go to the project run the command "git add ." from the project folder
+step 6: git status
+stpe 7: git commit -m "commit message"
+step 8: git push

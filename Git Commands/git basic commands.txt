@@ -1,0 +1,5 @@
+git clone <repo-url> 		----> for cloning repository
+git add .			----> for adding all changed files to git
+git status			----> for see what files added ( but not committed)
+git commit -m "commit message" 	----->for commit files to local git repo
+git push 			----> pushing changes to remote git repo

@@ -1,0 +1,87 @@
+What is Linq?
+
+Linq(Language Integrated Query) is a set of methods in c# that allows us to query data from multiple data sources like databases, in memory collections in native c# language.
+
+-------------------------------------------------------------------------------------------------------------------
+
+1.what is difference between IEnumerable and IQueryable?
+
+IEnumerable<T>:
+	Namespace: System.Collections.Generic
+
+IQueryable<T>:
+	Namespace: System.Linq
+
+-----------------------------------------------------------------------------------------------------------------
+2. Explain the difference between LINQ to Objects, LINQ to SQL, and LINQ to Entities.
+
+LINQ to Objects: Allows querying of in-memory collections (arrays, lists, etc.).
+LINQ to SQL: Allows querying of SQL databases and works directly with SQL Server databases.
+LINQ to Entities: Works with Entity Framework, querying entity models that are mapped to a database.
+
+-----------------------------------------------------------------------------------------------------------------
+3. What are deferred execution and immediate execution in LINQ?
+
+Deferred Execution: The query is not executed until the results are enumerated (e.g., in a foreach loop). IEnumerable<T> queries typically use deferred execution.
+
+Immediate Execution: The query is executed immediately when it is called (e.g., using methods like ToList(), Count(), etc.).
+
+-----------------------------------------------------------------------------------------------------------------
+4. What is the IEnumerable<T> interface in LINQ?
+
+IEnumerable<T> is an interface that represents a collection of objects that can be enumerated one at a time
+
+-----------------------------------------------------------------------------------------------------------------
+
+8. What is the purpose of the Select method in LINQ?
+
+The Select method projects each element of a collection into a new form. It is commonly used to transform data from one shape to another.
+
+-----------------------------------------------------------------------------------------------------------------
+9. what is the purpose of the SelectMany in Linq?
+
+The purpose of SelectMany in LINQ is to flatten a collection of collections (i.e., a collection where each element is itself a collection) into a single, unified collection.
+------------------------------------------------------------------------------------------------------------------
+
+10.What is the difference between First() and FirstOrDefault() in LINQ?
+
+First(): Returns the first element of a collection. Throws an exception if the collection is empty.
+FirstOrDefault(): Returns the first element or default value (e.g., null for reference types) if the collection is empty.
+
+-----------------------------------------------------------------------------------------------------------------
+11.waht is the difference between Single() and SingleOrDefault() in Linq?
+
+Single():
+	If exactly one element matches the condition, it returns that element.
+	If no elements match the condition, it throws an InvalidOperationException.
+	If more than one element matches the condition, it throws an InvalidOperationException (as it expects only one match).
+
+SingleOrDefault():
+	If exactly one element matches the condition, it returns that element.
+	If no elements match the condition, it returns the default value of the type
+	If more than one element matches the condition, it throws an InvalidOperationException
+
+-------------------------------------------------------------------------------------------------------------------------
+12. What is the Aggregate method in LINQ used for?
+
+The Aggregate method is used to apply a cumulative operation to a sequence, such as summing values or concatenating strings.
+
+var numbers = new List<int> { 1, 2, 3 };
+var sum = numbers.Aggregate((total, next) => total + next); // 6
+
+------------------------------------------------------------------------------------------------------------------
+
+13. What is the difference between "AddRange" and "Concat" ?
+
+AddRange:
+	Namespace: System.Collections.Generic
+	Return Type: void
+	list1.AddRange(list2);
+Concat:
+	Namespace: System.Linq
+	Return Type: Returns a new IEnumerable<T>,
+	var result = list1.Concat(list2);
+
+
+
+

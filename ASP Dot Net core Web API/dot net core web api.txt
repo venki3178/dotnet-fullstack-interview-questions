@@ -1,0 +1,33 @@
+What is Swagger?
+
+Swagger is used to describe Restful APIs.
+Swagger allows developer to create interactive and human readable API documentation.
+Swagger is used to Test the APIs.
+
+---------------------------------------------------------------------------------------------
+What is ControllerBase?
+
+The ControllerBase is a Base class for controllers in ASP.NET core that handles HTTP requests.
+It provides a set of common properties and methods for controllers to handle HTTP requests and generate HTTP responses.
+
+-----------------------------------------------------------------------------------------
+What is the ApiController attribute in Asp.net core?
+
+ApiController provides few features like attribute routing requirement, automatic model validation and binding source parameter inference.
+
+----------------------------------------------------------------------------------------
+What is the difference between IActionResult and ActionResult?
+
+IActionResult: is an interface that defines a contract for all possible responses that a controller action can return in an ASP.NET Core application.
+IActionResult is the more generic return type. It can be used when the exact type of the response is not known 
+
+
+ActionResult:is a derived class of IActionResult and is more specific. It is often used when you want to return a more specific type of result, 
+
+----------------------------------------------------------------------------------------------------------
+
+AddScoped:One instance per HTTP request.
+Suitable for services that maintain state per request DbContext, logging services, unit of work, session-based services.
+
+AddTransient:A new instance is created every time the service is requested.
+Suitable for stateless services that don't maintain state across requests.Configuration helpers, simple utility classes.

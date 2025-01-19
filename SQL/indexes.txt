@@ -1,0 +1,8 @@
+What is an index in SQL?
+
+index is a data structure that SQL Server uses to quickly locate and access the data rows in a table.
+------------------------------------------------------------------------------------------------------------------------------------------------
+How Indexes work in SQL 
+
+Indexes in SQL implemented using B-Tree(balanced tree) structure. This data structure ensures that data is always sorted and allows SQL server to quickly 
+find data.

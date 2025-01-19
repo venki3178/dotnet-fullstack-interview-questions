@@ -1,0 +1,30 @@
+Concurrent Programming:
+Concurrency means breaking down a task into independent sub-tasks and switching between them, which gives the illusion 
+that they are running at the same time.
+
+Example:
+In a single-core processor, tasks are executed concurrently by switching between them so fast that it appears they are running simultaneously (time-sliced).
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Parallel Programming:
+
+In parallel programming, multiple tasks are split into smaller sub-tasks, which are executed at the same time on different CPU cores or machines,
+thus achieving speedup. The goal is to divide a task into smaller parts and run them concurrently across multiple processors.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Async and Await?
+
+Async and Await are keywords which are used in combination to make a method as asynchronous method and performs an asynchronous operation.
+
+Task: 
+A Task represents an operation that runs asynchronously without blocking the main thread.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is TPL(Task Parallel Library)
+
+TPL is a set of APIs provided by Dot Net Framework and it simplifies the process of adding parallelism and concurrency to applications.
+It allows developers to write parallel code by breaking tasks into smaller sub-tasks, 
+TPL uses multiple cores of processor for running multiple tasks parallel.
+TPL abstracts the underlying complexities of thread management, making it easier to write efficient, scalable, and responsive applications.
+TPL is based on the concept of Task, which represents an asynchronous operation.
+
+
