@@ -1,0 +1,267 @@
+						Array
+=====================================================================================================
+What is An array?
+An array is a collection of same type of elements stored in contiguous memory locations. Arrays are fixed in size
+
+int[] numbers = new int[5]; // Array of integers with 5 elements
+string[] names = new string[] { "John", "Alice", "Bob" }; // Array with initial values
+
+-----------------------------------------------------------------------------------------------------
+what is ArrayList?
+ArrayList is a non-generic dynamically resizing array that can store any type of elements.
+
+Note: ArrayList stores values as objects
+-----------------------------------------------------------------------------------------------------
+
+what are the differences Between Array and ArrayList(or Collections)?
+
+Array							ArrayList
+1.Size of Array is Fixed Length				1.Size of ArrayList is variable length.
+2.Not possible to add items in middle			3.possible to add items in muddle
+3.Not possible to remove items from middle		3.possible to remove items from middle
+
+4. Performance wise array is faster because		4. Performance wise slow because it require    
+no need of boxing and unboxing 				boxing while adding element to arraylist it
+while adding elements to array				converts valutype to ref type and while
+							accessing element from array it requires unboxing it means
+						        it should convert  ref type(object) to valuetype
+-------------------------------------------------------------------------------------------------------
+what are the differences between ArrayList and List?
+
+ArrayList and List are dynamic arrays
+
+ArrayList 					 	List<T>
+
+1.ArrayList is Non generic collection			1.List is a generic collection
+2.ArrayList stores any type of objects			2.List stores only same type of elements
+3.Lower performance due to boxing/unboxing		3.Better performance due to no boxing/unboxing
+---------------------------------------------------------------------------------------------------------
+
+What is a Tuple?
+
+A Tuple is a collection of different type of elements stored in a single object.
+Tuples are typically used to return multiple values from a method.
+
+// Using Tuple class (older versions of C#)
+Tuple<int, string> tuple1 = new Tuple<int, string>(1, "Hello");
+
+// Using ValueTuple (recommended in modern C#)
+(int, string) tuple2 = (1, "Hello");
+
+---------------------------------------------------------------------------------------------------------
+
+How do you access elements in a Tuple?
+
+// Using Tuple
+var tuple = new Tuple<int, string>(1, "Hello");
+Console.WriteLine(tuple.Item1);  // Output: 1
+Console.WriteLine(tuple.Item2);  // Output: Hello
+
+// Using ValueTuple
+(int Id, string Name) person = (1, "John");
+Console.WriteLine(person.Id);   // Output: 1
+Console.WriteLine(person.Name); // Output: John
+----------------------------------------------------------------------------------------------------------
+
+What is the maximum number of elements in a Tuple?
+A Tuple can hold up to 8 elements. For more than 8 elements, you would need to use a Tuple of Tuples ?
+
+var tuple = new Tuple<int, string, bool, double, char, float, long, DateTime>(
+    1, "Hello", true, 3.14, 'A', 2.5f, 100L, DateTime.Now);
+
+-----------------------------------------------------------------------------------------------------------
+
+Here are examples of CRUD operations, sorting, finding index, copying, reversing, and getting the length for Array, ArrayList, List, Dictionary, HashSet, and String in C#:
+
+1. Array
+-----------------------------------------------------
+// Create
+int[] arr = { 1, 2, 3, 4, 5 };
+
+// Read (Access)
+Console.WriteLine(arr[2]); // Output: 3
+
+// Update
+arr[2] = 10; // arr is now { 1, 2, 10, 4, 5 }
+
+// Delete
+Array.Clear(arr, 2, 1); // Clears element at index 2 (arr is now { 1, 2, 0, 4, 5 })
+
+// Length
+Console.WriteLine(arr.Length); // Output: 5
+
+// Sort
+Array.Sort(arr); // arr is now { 0, 1, 2, 4, 5 }
+
+// Find Index
+int index = Array.IndexOf(arr, 4); // Output: 3
+
+// Copy
+int[] arrCopy = new int[arr.Length];
+Array.Copy(arr, arrCopy, arr.Length);
+
+// Reverse
+Array.Reverse(arr); // arr is now { 5, 4, 2, 1, 0 }
+----------------------------------------------------------------------------------
+
+2. ArrayList
+
+----------------------------------------------------------------------------
+// Create
+ArrayList list = new ArrayList() { 1, 2, 3, 4, 5 };
+
+// Read (Access)
+Console.WriteLine(list[2]); // Output: 3
+
+// Update
+list[2] = 10; // list is now { 1, 2, 10, 4, 5 }
+
+// Delete
+list.RemoveAt(2); // list is now { 1, 2, 4, 5 }
+
+// Length
+Console.WriteLine(list.Count); // Output: 4
+
+// Sort
+list.Sort(); // list is now { 1, 2, 4, 5 }
+
+// Find Index
+int index = list.IndexOf(4); // Output: 2
+
+// Copy
+ArrayList listCopy = (ArrayList)list.Clone();
+
+// Reverse
+list.Reverse(); // list is now { 5, 4, 2, 1 }
+3. List<T>
+csharp
+Copy
+// Create
+List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+
+// Read (Access)
+Console.WriteLine(list[2]); // Output: 3
+
+// Update
+list[2] = 10; // list is now { 1, 2, 10, 4, 5 }
+
+// Delete
+list.RemoveAt(2); // list is now { 1, 2, 4, 5 }
+
+// Length
+Console.WriteLine(list.Count); // Output: 4
+
+// Sort
+list.Sort(); // list is now { 1, 2, 4, 5 }
+
+// Find Index
+int index = list.IndexOf(4); // Output: 2
+
+// Copy
+List<int> listCopy = new List<int>(list);
+
+// Reverse
+list.Reverse(); // list is now { 5, 4, 2, 1 }
+-------------------------------------------------------------------
+4. Dictionary<TKey, TValue>
+-------------------------------------------------------------------
+// Create
+Dictionary<int, string> dict = new Dictionary<int, string>()
+{
+    {1, "One"},
+    {2, "Two"},
+    {3, "Three"}
+};
+
+// Read (Access)
+Console.WriteLine(dict[2]); // Output: "Two"
+
+// Update
+dict[2] = "Updated"; // dict is now { {1, "One"}, {2, "Updated"}, {3, "Three"} }
+
+// Delete
+dict.Remove(2); // dict is now { {1, "One"}, {3, "Three"} }
+
+// Length
+Console.WriteLine(dict.Count); // Output: 2
+
+// Find Index (By key lookup)
+bool containsKey = dict.ContainsKey(3); // Output: true
+
+// Copy
+Dictionary<int, string> dictCopy = new Dictionary<int, string>(dict);
+
+// Reverse (No built-in reverse for dictionaries, but you can reverse the keys/values in a list)
+var reversedDict = dict.ToList();
+reversedDict.Reverse(); // reversedDict is now a list of key-value pairs in reverse order
+
+-----------------------------------------------------------------------------------------------
+5. HashSet<T>
+---------------------------------------------------------------------------------------------------
+// Create
+HashSet<int> set = new HashSet<int>() { 1, 2, 3, 4, 5 };
+
+// Read (Access)
+foreach (int item in set)
+{
+    Console.WriteLine(item); // Output: 1 2 3 4 5 (in any order)
+}
+
+// Update
+// HashSet does not allow direct index-based access or update. We remove and add instead.
+set.Remove(2); // Remove 2
+set.Add(6); // Add 6, set is now { 1, 3, 4, 5, 6 }
+
+// Delete
+set.Remove(3); // set is now { 1, 4, 5, 6 }
+
+// Length
+Console.WriteLine(set.Count); // Output: 4
+
+// Sort (HashSet does not maintain order, but you can sort it)
+var sortedSet = set.OrderBy(x => x).ToList(); // sortedSet is { 1, 4, 5, 6 }
+
+// Find Index (No index-based access in HashSet)
+// Instead, you can use LINQ to find an element
+bool contains = set.Contains(4); // Output: true
+
+// Copy
+HashSet<int> setCopy = new HashSet<int>(set);
+
+// Reverse (No built-in reverse for HashSet)
+var reversedSet = set.ToList();
+reversedSet.Reverse(); // reversedSet is { 6, 5, 4, 1 }
+----------------------------------------------------------------------------------------
+6. String
+----------------------------------------------------------------------------------------
+// Create
+string str = "Hello";
+
+// Read (Access)
+Console.WriteLine(str[0]); // Output: H
+
+// Update
+// Strings are immutable, so you cannot modify them directly
+str = str.Replace('H', 'J'); // str is now "Jello"
+
+// Delete
+str = str.Remove(0, 1); // str is now "ello"
+
+// Length
+Console.WriteLine(str.Length); // Output: 4
+
+// Sort
+char[] charArray = str.ToCharArray();
+Array.Sort(charArray); // charArray is now ['e', 'l', 'l', 'o']
+str = new string(charArray); // str is now "elllo"
+
+// Find Index
+int index = str.IndexOf('l'); // Output: 1
+
+// Copy
+string strCopy = string.Copy(str);
+
+// Reverse
+str = new string(str.Reverse().ToArray()); // str is now "olle"
+
+

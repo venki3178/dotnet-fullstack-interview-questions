@@ -8,9 +8,13 @@ Linq(Language Integrated Query) is a set of methods in c# that allows us to quer
 
 IEnumerable<T>:
 	Namespace: System.Collections.Generic
+	When LINQ methods (like Where, Select, OrderBy) are called on an IEnumerable collection, 
+	they are executed immediately on the collection that is already loaded in memory.
 
 IQueryable<T>:
 	Namespace: System.Linq
+	 When LINQ methods are applied to IQueryable, the query is not executed immediately. Instead, it builds a query expression
+	 that is then translated into an appropriate query language (e.g., SQL for databases). data will be retrieved when the data is enumerated.
 
 -----------------------------------------------------------------------------------------------------------------
 2. Explain the difference between LINQ to Objects, LINQ to SQL, and LINQ to Entities.
