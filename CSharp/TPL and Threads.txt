@@ -13,18 +13,18 @@ thus achieving speedup. The goal is to divide a task into smaller parts and run 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 What is Async and Await?
 
-Async and Await are keywords which are used in combination to make a method as asynchronous method and performs an asynchronous operation.
+Async and Await are keywords which are used to make a method as asynchronous method and performs an asynchronous operation.
 
 Task: 
 A Task represents an operation that runs asynchronously without blocking the main thread.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-What is TPL(Task Parallel Library)
+What is TPL(Task Parallel Library)?
 
 TPL is a set of APIs provided by Dot Net Framework and it simplifies the process of adding parallelism and concurrency to applications.
+TPL abstracts the underlying complexities of thread management, making it easier to write efficient, scalable, and responsive applications.
 It allows developers to write parallel code by breaking tasks into smaller sub-tasks, 
 TPL uses multiple cores of processor for running multiple tasks parallel.
-TPL abstracts the underlying complexities of thread management, making it easier to write efficient, scalable, and responsive applications.
 TPL is based on the concept of Task, which represents an asynchronous operation.
 
 
