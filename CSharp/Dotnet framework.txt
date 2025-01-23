@@ -1,0 +1,15 @@
+What is the Common Language Runtime (CLR)?
+
+CLR is the runtime environment for .NET applications. It is responsible for managing memory, thread execution, garbage collection.
+-------------------------------------------------------------------------------------------------------------
+
+ What is the Common Type System (CTS)?
+
+CTS defines how types are declared, used, and managed in the .NET Framework. It ensures that objects written in different languages can interact with each other by specifying a common set of types, such as integers, strings, and arrays. 
+
+----------------------------------------------------------------------------------------------------------------
+
+What is the difference between StringBuilder and String in .NET?
+
+String: Immutable, meaning once created, the value cannot be changed. Any operation that modifies the string creates a new object.
+StringBuilder: Mutable, allowing for the modification of the string without creating new instances, making it more efficient for concatenation or manipulation.

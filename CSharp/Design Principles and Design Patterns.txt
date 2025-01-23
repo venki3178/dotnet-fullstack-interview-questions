@@ -1,0 +1,60 @@
+Clean Code Principles:
+1.	Meaningful Names: Use descriptive, unambiguous names.
+2.	Small Functions: Functions should be small, ideally doing one thing.
+3.	Avoid Duplication: Don’t repeat yourself; use functions and reuse code.
+4.	Use Comments Sparingly: Let the code explain itself; use comments for why, not what.
+5.	Avoid Magic Numbers/Strings: Use constants or Enums to make values clear.
+6.	Single Responsibility Principle: Classes and functions should only have one reason to change.
+7.	Avoid Large Classes: Refactor large classes into smaller, more focused ones.
+8.	Loose Coupling: Minimize dependencies between classes and functions.
+9.	Refactor Continuously: Regularly improve your code to keep it clean and efficient.
+--------------------------------------------------------------------------------------------
+what is DRY(Don't Repeat Yourself)?
+
+The Idea of DRY principle is reusing the logic instead of duplicating same logic in different places of the application.
+It can be implement by Method extraction, Separate class, Inheritance etc.
+
+--------------------------------------------------------------------------------------------
+what is KISS Principle:(Keep It Simple, Stupid)?
+
+The idea of KISS principle is to avoid unnecessary complexity and over-engineering, ensuring that solutions are straight forward as possible.
+--------------------------------------------------------------------------------------------
+what is YAGNI Priciple:(You Aren't Gonna Need it)?
+
+This principle advises only implement features that are currently needed, rather than adding features based on speculative future requirements.
+
+---------------------------------------------------------------------------------------------
+Solid Principles:
+	Single Responsibility: 
+		A Class should have only one reason to change. it means it should have only one responsibility or job.
+
+	Open Close Principle: 
+		Software entities like classes, functions should be open for extension and closed for modification. This means
+		we should able to add new functionality with minimal changes in existing code.
+
+	Liskov's Substitute Principle:
+		Object of super class should be replaceable with objects of sub classes without affecting the functionality
+		of the program.
+
+	Interface Segregation Principle: 
+		Clients should not be forced to depend on interfaces they do not use. 
+
+	Dependency Inversion Principle: 
+		High Level modules should not depend on low level modules. Both should depend on abstractions(interfaces).
+-------------------------------------------------------------------------------------------------\
+
+What are the design patterns?
+Design patterns are well defined solutions to commonly occurring problems in software design.
+
+What are the types of Design Patterns?
+Design patterns are categorized into three types
+	1.Creational --- Focus on object creation (e.g., Singleton, Factory Method).
+	2.Structural --- Deal with object composition and relationships (e.g., Adapter, Facade, Decorator).
+	3.Behavioural  -- Focus on how objects interact and communicate (e.g., Observer, Strategy).
+
+What is Singleton Design Pattern?
+The singleton design pattern is part of Creational design patterns that ensures a class has only one instance for entire lifetime of an application.
+
+What is Factory Design Pattern?
+
+
