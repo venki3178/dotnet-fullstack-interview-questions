@@ -1,0 +1,34 @@
+What is Api Management?
+
+API Management is reliable, secure, scalable way to publish all our API's in a centralized location. It will provide single interface
+and essential tools to provision and manage all our API's.
+
+Use Case: API Management is not used to deploy applications or services but to expose and manage APIs in a controlled and scalable way. It is commonly used for businesses that have multiple APIs, need to provide a unified entry point to those APIs, or need to expose APIs to third-party developers.
+---------------------------------------------------------------------------------------------------------------------------------
+
+what are the components of API Management?
+1.API Gateway
+2.Developer Portal
+3.Management Plane
+
+---------------------------------------------------------------------------------------------------------------------------------
+What are differences between API Management, App Service and Virtual Machine?
+
+API Management:
+	Focuses on managing APIs (not hosting them).
+	Provides features for securing, analyzing, and monitoring API traffic.
+	Does not directly host your web applications or services.
+App Service:
+	Used for deploying and hosting web applications and APIs (PaaS solution).
+	Takes care of scaling, patching, and other infrastructure management tasks for you.
+	Suitable for modern web apps and APIs that need to be quickly deployed and scaled.
+Virtual Machines:
+	Provides full control over infrastructure (IaaS).
+	Requires you to manage the operating system, security, and scaling manually.
+	Suitable for legacy applications or complex scenarios requiring specific configurations.
+
+In Summary:
+	API Management is for managing and controlling APIs (providing a gateway for access and securing/exposing them).
+	App Service is for deploying and hosting web apps or APIs in a managed, scalable environment.
+	Virtual Machines provide full control over infrastructure to run any application, including APIs, but require more management.
+ 
