@@ -1,0 +1,172 @@
+Delegate: is a type safe function pointer.
+A delegate holds the reference of a method and then it calls the method for execution.
+
+Uses: We can pass method as parameter for another method(call back method) using Delegate.
+
+1.define delegate
+Public delegate Returntype delegateaname(parameters);
+2.create object for delegate and pass method name as constructor parameter
+DelegateName obj = new DelegateName(methodName);
+3.Call method using obj
+Obj(parametervalues);
+
+
+Example:
+Class Program{
+	public  delegate int AddDelegate(int a, int b);
+	public static int Add(int a, int b){
+		return a + b;
+	}
+	public static void Main(string[] args){
+		AddDelegate addDelegate = new AddDelegate(Add);
+		C.WL(addDelegate(10,20));
+	}
+}
+
+
+Delegates as Callback methods:
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Salary { get; set; }
+
+        public Employee(int id, string name, decimal salary)
+        {
+            Id = id;
+            Name = name;
+            Salary = salary;
+        }
+
+        public static void PrintEligiblePromoteEmployees(List<Employee> employees, IsPromotable isPromotable)
+        {
+            foreach(Employee employee in employees)
+            {
+                if(isPromotable(employee))
+                {
+                    Console.WriteLine($"{employee.Name} is eligible for promotion");
+                }
+            }
+        }
+    }
+
+    public delegate bool IsPromotable(Employee employee);
+    internal class Program
+    {
+        public static bool IsPromote(Employee employee)
+        {
+            return employee.Id < 3;
+        }
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>();
+            employees.Add(new Employee(1, "Venkat", 100000));
+            employees.Add(new Employee(2, "Krishna", 200000));
+            employees.Add(new Employee(3, "Ravi", 300000));
+            employees.Add(new Employee(4, "Raju", 400000));
+
+
+            IsPromotable isPromotable = new IsPromotable(IsPromote);
+            Employee.PrintEligiblePromoteEmployees(employees, isPromotable);
+        }
+    }
+}
+
+
+
+Delegate Usage types:
+---------------------------------------------------------------------------------------------------------------------------
+
+Action Delegate:
+ 
+Action is a delegate, it can be used to point a method that has no return type. (i.e. return type will be void.)
+
+
+1.	 class Program  
+2.	    {  
+3.	        static void Main(string[] args)  
+4.	        {  
+5.	            Action<string> log = new Action<string>(LogInfo);  
+6.	            log.Invoke("Hi ALL");  
+7.	            Console.ReadLine();  
+8.	  
+9.	        }  
+10.	  
+11.	        static void LogInfo(string message)  
+12.	        {  
+13.	            Console.WriteLine(message);  
+14.	        }  
+15.	    }  
+
+Method2:
+Action<string> log = LogInfo;
+	log.Invoke(“Hi All”);
+
+Method3:
+Action<string> log = (message)=> Console.WriteLine(message);
+	log.Invoke(“Hi All”)
+
+------------------------------------------------------------------------------------------------------------------------
+
+FUNC Delegate: 
+
+Func is a delegate, it can be used to point a method that has to return a value.
+
+1.	 class Program  
+2.	    {  
+3.	        static void Main(string[] args)  
+4.	        {   
+5.	            Func<int, int, int> addFunc = new Func<int, int, int>(Add);  
+6.	            int result = addFunc(3, 4);  
+7.	            Console.WriteLine(result);  
+8.	            Console.ReadLine();  
+9.	  
+10.	        }  
+11.	        static int Add(int a, int b)  
+12.	        {  
+13.	            return a + b;  
+14.	        }  
+15.	    }  
+16.	
+
+Method2:
+Func<int, int, int> addFunc = Add;
+	addFunc(3,4);
+
+Method3:
+Func<int, int, int> log = (a, b)=> Console.WriteLine(message);
+	addFunc(3,4);
+
+------------------------------------------------------------------------------------------------------------------------
+
+3.Predicate Delegate:
+ 
+Func is a delegate, it can be used to point a method that has to return a Boolean value..
+1.	 class Program  
+2.	    {  
+3.	        static void Main(string[] args)  
+4.	        {  
+5.	            Predicate<int> IsEven = new Predicate<int>(IsEvenNumber);  
+6.	            Console.WriteLine(IsEven(10));  
+7.	            Console.WriteLine(IsEven(1567));  
+8.	            Console.ReadLine();  
+9.	  
+10.	        }  
+11.	        static bool IsEvenNumber(int number)  
+12.	        {  
+13.	            return number % 2 == 0;  
+14.	        }  
+15.	    }  
+
+

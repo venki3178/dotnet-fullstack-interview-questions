@@ -8,7 +8,7 @@ string[] names = new string[] { "John", "Alice", "Bob" }; // Array with initial 
 
 -----------------------------------------------------------------------------------------------------
 what is ArrayList?
-ArrayList is a non-generic dynamically resizing array that can store any type of elements.
+ArrayList is a collection of multiple types of elements. size of ArrayList is variable.
 
 Note: ArrayList stores values as objects
 -----------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ ArrayList 					 	List<T>
 
 What is a Tuple?
 
-A Tuple is a collection of different type of elements stored in a single object.
+A Tuple is a collection of multiple types of elements stored in a single object.
 Tuples are typically used to return multiple values from a method.
 
 // Using Tuple class (older versions of C#)

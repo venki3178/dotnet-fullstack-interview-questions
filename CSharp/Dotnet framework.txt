@@ -13,3 +13,78 @@ What is the difference between StringBuilder and String in .NET?
 
 String: Immutable, meaning once created, the value cannot be changed. Any operation that modifies the string creates a new object.
 StringBuilder: Mutable, allowing for the modification of the string without creating new instances, making it more efficient for concatenation or manipulation.
+
+
+1.What is Garbage Collector?
+Garbage Collector is a background process which runs undetermestically(un predect) and cleans unreferenced manged objects from memory.
+
+2.How does GC know when to clean the objects?
+When objects goes out of scope GC reclaims the memory and gives it to operating system.
+When objects in heap not referenced to any variable in stack.
+ 
+When Call method starts “x” will be stored in “Stack” and object will be created in “Heap” but when “Call” method ends “x” will be removed from stack due to out of scope and in such scenarios objects will be unreferenced.
+
+
+3.Is there any way we can see this heap memory?
+Yes, we can analyze GC using “Performance Counters”.
+Steps To run Performance counters
+VisualStudio- DebugPerformance Profiler
+ 
+ 
+select “.NET Counters”
+Then click “Start” button
+
+4.Does Garbage Collector clean primitive types?
+No, GC does not clean primitive types. They are allocated on stack but not on heap. Stack remove them as soon as the variables goes out of scope.
+
+
+5.Manged vs Unmanaged Code/Objects/Resources?
+The objects which are controlled by CLR is called managed Objects.
+The objects which are not Controlled by CLR is called Unmanaged Objects like File Handle, COM objects, Connection objects.
+
+
+6.Can GC clean unmanaged objects?
+NO, GC clean only managed objects.
+Total Memory of Visual studio( equal to working set in performance profile) =  unmanaged + managed memory
+
+
+7.Explain Generations in GC?
+Generations are logical buckets which have objects and each bucket defines how much old the objects are.
+
+
+8.What is GC0, GC1 and GC2?
+ 
+9.Why do we need Generations?
+The whole goal of generations is performance.
+GC makes an assumption that if objects are needed longer in memory, then it should be visited less as compared to objects which are freshly created and which have high probability of going out of scope.
+
+
+10.Which is the best place to clean unmanaged objects?
+Destructor is the best place to clean unmanaged objects.
+ 
+
+11.How does GC behave when we have a destructor?
+When a class has a destructor GC takes more trips to clean them and due to that the objects are promoted to upper generation and thus putting more pressure on memory.
+ 
+12.what do you  think about empty destructor?
+Having empty destructor will cause lot of harm as objects gets promoted to upper generation and thus putting more pressure on memory.
+13.Explain Dispose Pattern?
+ 
+ 
+ 
+GC.SuppressFinalize means it is saying that don’t call destructor(finalize).
+
+
+14.What is difference between finalize vs destructor?
+Finalize and destructor both are same
+Destructor calls the finalize method. 
+
+15.What is the use of “using” keword?
+ 
+
+16.Can we force garbage collector?
+Yes, we can by calling "GC.Collect"
+ 
+17.Is it good practice to force GC ?
+	 
+What is Memory Leak

@@ -27,4 +27,12 @@ It allows developers to write parallel code by breaking tasks into smaller sub-t
 TPL uses multiple cores of processor for running multiple tasks parallel.
 TPL is based on the concept of Task, which represents an asynchronous operation.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Process?
+process is an independent program that executed by the operating system
+
+---------------------------------------------------------------------------------------
+What is the Thread?
+A Thread is the smallest unit of execution of Process.
+
 
