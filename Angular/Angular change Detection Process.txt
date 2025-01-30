@@ -1,0 +1,98 @@
+What is Change Detection in Angular?
+
+Change detection is the process by which Angular updates the DOM when data in the component changes. It ensures that the UI remains in sync with the application state.
+------------------------------------------------------------------------------------------------------------------------------------
+
+What are the different Change Detection Strategies in Angular?
+
+Angular provides two change detection strategies:
+
+Default: The entire component tree is checked whenever a change occurs.
+OnPush: The component is checked only when its input properties change, or an event occurs inside the component.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+What is the default Change Detection Strategy in Angular?
+
+The default change detection strategy in Angular is ChangeDetectionStrategy.Default. It runs change detection on the entire component tree whenever an event occurs.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+How does ChangeDetectionStrategy.OnPush work?
+
+When using ChangeDetectionStrategy.OnPush, Angular will only check a component when:
+
+	An @Input() property reference changes.
+	An event occurs within the component.
+	A manual trigger (ChangeDetectorRef.markForCheck()) is called.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+What are the advantages of using OnPush change detection strategy?
+
+Improves performance by reducing unnecessary checks.
+Optimizes rendering by updating only necessary components.
+
+------------------------------------------------------------------------------------------------------------------------------------
+What happens if we modify an object inside an OnPush component?
+
+If we modify an object inside an OnPush component without changing its reference, Angular will not detect the change. The component will not re-render unless markForCheck() is called manually.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+How can you force Angular to re-check an OnPush component?
+
+You can manually trigger change detection using:
+
+ChangeDetectorRef.markForCheck(): Marks the component and its ancestors for change detection.
+ChangeDetectorRef.detectChanges(): Runs change detection immediately on the component and its children.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+What is the difference between markForCheck() and detectChanges()?
+
+markForCheck(): Marks the component and its ancestors for change detection in the next cycle.
+detectChanges(): Immediately runs change detection on the component and its children.
+------------------------------------------------------------------------------------------------------------------------------------
+
+What is ChangeDetectorRef.detach() and when would you use it?
+
+detach() stops Angular from running change detection on a component. It is useful for optimizing performance in scenarios where a component rarely needs updates.
+You can re-enable detection using ChangeDetectorRef.reattach().
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+How does Angular handle change detection with Observables in an OnPush component?
+Answer:
+Since Observables emit new values asynchronously, Angular does not automatically detect these changes in an OnPush component. To update the UI, you must:
+	Use async pipe ({{ data$ | async }}) in templates.
+	Manually call markForCheck() inside the subscription.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+What happens if a child component has ChangeDetectionStrategy.OnPush but the parent has Default?
+
+If the parent re-renders, it will trigger change detection in the child even if it has OnPush.
+However, the child will still follow OnPush rules, meaning it won’t update unless its @Input properties change or an event happens inside it.
+
+------------------------------------------------------------------------------------------------------------------------------------
+Key Takeaways
+✅ Default strategy: Runs change detection for the entire tree.
+✅ OnPush strategy: Runs only if inputs change, an event occurs, or manually triggered.
+✅ Use markForCheck() for manual detection in OnPush components.
+✅ Use detach() and reattach() for optimizing performance.
+✅ Combine OnPush with immutability and Observables for best performance.
+
+1. What is AOT (Ahead-of-Time) Compilation?
+AOT compiles Angular HTML and TypeScript code before the browser downloads and runs the application. This happens at build time.
+
+When is AOT used?
+Default in production builds (ng build --prod).
+Recommended for all live deployments due to better performance and security.
+
+2. What is JIT (Just-in-Time) Compilation?
+JIT compiles Angular HTML and TypeScript code in the browser at runtime when the application loads.
+
+When is JIT used?
+Default in development mode (ng serve).
+Useful when debugging since it allows for rapid changes.
