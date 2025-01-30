@@ -1,0 +1,9 @@
+Can we have multiple subscriptions under single Azure account?
+
+Yes, you can have multiple subscriptions under a single Azure account. Azure allows you to organize your resources into multiple subscriptions, which helps with managing costs, resources, and access control.
+-----------------------------------------------------------------------------------------------------------
+
+How many Active directory tenant ids will be associated with single account?
+
+Only one tenant id will be associated with single account.
+You can link multiple subscriptions to a single Azure Active Directory (AAD) tenant, and manage them from the Azure portal. The subscriptions can either be under a single billing account or have separate billing accounts depending on your needs.
