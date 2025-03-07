@@ -1,0 +1,11 @@
+How to fetch query params from route url?
+
+We can fetch query params from route using ActivatedRoute in two ways
+
+	1.Snapshot approach
+	 constructor(private route: ActivatedRoute) {}
+
+ 	 ngOnInit() {
+    		this.id = this.route.snapshot.queryParamMap.get('id') || '';
+    		this.name = this.route.snapshot.queryParamMap.get('name') || '';
+  	}
