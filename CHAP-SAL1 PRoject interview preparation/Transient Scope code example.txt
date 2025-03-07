@@ -1,0 +1,42 @@
+public interface IGuidGeneration
+{
+	Guid GetGuid();
+}
+
+public class GuidGeneration: IGuidGeneration
+{
+	private readonly Guid _guid;
+	public GuidGeneration()
+	{
+		_guid = Guid.NewGuid();
+	}
+	
+	public Guid GetGuid()
+	{
+		return _guid;
+	}
+	
+}
+
+builder.Services.AddTransient<IGuidGeneration, GuidGeneration>();
+
+public class GuidController: ControllerBase
+{
+	private readonly IGuidGeneration _guid1;
+	private readonly IGuidGeneration _guid2;
+	public GuidController(IGuidGeneration guid1, IGuidGeneration guid2)
+	{
+		_guid1 = guid1;
+		_guid2 = guid2;
+	}
+
+	[HttpGet]
+	public IActionResult GetGuids()
+	{
+		return OK(new
+			{
+				Guid1 = _guid1.GetGuid();
+				Guid2 = _guid2.GetGuid();
+			});
+	}
+}	

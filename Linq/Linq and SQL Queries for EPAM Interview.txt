@@ -1,0 +1,64 @@
+lstEmployees.OrderByDescending(emp=>emp.Salary).Skip(1).FirstOrDefault();
+
+lstEmployees.Skip(pageSize*(noOfPages-1)).Take(pageSize);
+
+lstOrders.Join(customer,
+	order=>order.orderId,
+        product=>product.productId,
+	(order, product)=> new {order, customer})
+	.GroupBy(x=>x.customer.CustomerName)
+	.Where(g=>g.Sum(x=>x.order.Amount)>10000)
+	.Select(g=> new {
+		customerName=g.Key,
+		TotalAmount=g.Sum(x=>x.order.Amount)		
+		}).ToList()
+
+
+
+SQL Query to Find Second Highest Salary:
+--------------------------------------------------------
+method 1
+
+SELECT DISTINCT Salary
+FROM Employees
+ORDER BY Salary DESC
+OFFSET 1 ROWS FETCH NEXT 1 ROWS ONLY;
+------------------------------------------------------
+method 2
+
+select Max(salary) from employee where salary <
+(Select Max(salary) from employee)
+
+-----------------------------------------------
+WITH CTE AS(
+	Select Salary, ROWNUMBER() OVER(Oreder By Salary Desc) AS rank
+	from employees)
+Select salary from CTE
+where rank=2
+--------------------------------------------------------
+
+DateTime now = DateTime.Now;
+Console.WriteLine(now);  // Output might be: 12/12/2024 14:30:45
+
+DateTime today = DateTime.Today;
+Console.WriteLine(today);  // Output might be: 12/12/2024 00:00:00
+
+DateTime.Today not includes time it gives 00:00:00
+----------------------------------------------------------------
+
+// Total sales in the last one week
+var totalSalesLastWeek = sales
+    .Where(s => s.SaleDate >= DateTime.Today.AddDays(-7) && s.SaleDate <= DateTime.Today)
+    .Sum(s => s.Amount);
+
+// Total sales in the last one year
+var totalSalesLastYear = sales
+    .Where(s => s.SaleDate >= DateTime.Today.AddYears(-1) && s.SaleDate <= DateTime.Today)
+    .Sum(s => s.Amount);
+
+-----------------------------------------------------------
+
+select Sum(amount) from employees
+	where(DataADD(Day,-7,GetDate())
+	
+

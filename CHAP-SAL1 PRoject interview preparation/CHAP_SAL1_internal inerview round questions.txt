@@ -1,0 +1,66 @@
+public class Insurance{
+	public int Age {get;set;}
+	public string VehicleType {get;set;}
+	public int DrivingExperienceYears {get;set;}
+	public bool HasAccidents {get;set;}
+
+}
+
+public class InsuranceController: ControllerBase
+{
+	
+	[HttpPost("premium/calculate")]
+	public double CalculateInsurancePremium([FromBody] Insurance insurance ){
+		int basicPremium = 500;
+		double premium = basicPremium;
+		if(insurance.Age < 25){
+			premium += basicPremium*1.5;
+		}
+		if(insurance.VehicleType == "Motorcycle"){
+			premium += basicPremium*1.2;
+		}
+		else if(insurance.VehicleType == "Truck"){
+			premium += basicPremium*1.3;
+		}
+		if(insurance.DrivingExperienceYears <5){
+			premium += basicPremium*1.25;
+		}
+		if(insurance.HasAccidents){
+			premium += basicPremium*1.4;
+		}
+		return premium
+
+	}
+
+}
+
+
+
+csharpCopyvar employees = new List<Employee>{    
+	new Employee { Name = "Alice", JoiningDate = new DateTime(2018, 5, 10) }, 
+	   new Employee { Name = "Bob", JoiningDate = new DateTime(2021, 6, 1) },  
+	  new Employee { Name = "Charlie", JoiningDate = new DateTime(2019, 8, 20) },   
+	 new Employee { Name = "David", JoiningDate = new DateTime(2022, 3, 15) }
+};
+
+var query = employees.Where(employee => employee.JoiningDate > new DateTime(2020, 1, 1));
+
+
+
+
+Given an array of integers, find the first element that is repeated. If no element is repeated, return -1.
+
+
+
+public int GetRepeatedValue(int[] arr){
+	Dictionary<int, int> dict=new Dictionary<int,int>();
+	for(int i=0;i<arr.Length;i++){
+		if(dict.ContainsKey(arr[i]){
+		   return arr[i];
+		}
+		else{
+		   dict.Add(arr[i], i);
+		}
+	}
+	return -1;
+}

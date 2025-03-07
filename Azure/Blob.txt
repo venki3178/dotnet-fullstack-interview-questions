@@ -1,0 +1,50 @@
+Azure Blob Storage is object storage that is used to store massive amounts of unstructured data such as text or binary data.
+
+Key components:
+
+Storage Account: The top-level namespace for accessing blobs.
+Container: A logical grouping of blobs, similar to a folder.
+Blob: The actual file stored in a container.
+Access Tiers: Hot, Cool, and Archive for cost optimization.
+
+-------------------------------------------------------------------------------------------------------------
+What are the different types of blobs in Azure Blob Storage?
+
+Azure Blob Storage has three types of blobs:
+
+Block Blobs – Used for storing text and binary data, optimized for uploads and downloads.
+Append Blobs – Used for log files and scenarios where data needs to be appended.
+Page Blobs – Used for random read/write operations, typically in Azure VMs for disk storage
+-------------------------------------------------------------------------------------------------------------
+How do you secure Azure Blob Storage?
+Answer:
+Azure Blob Storage security can be ensured through:
+
+Shared Access Signatures (SAS) – Grants limited-time, controlled access.
+Role-Based Access Control (RBAC) – Assigns permissions based on Azure AD roles.
+Storage Account Keys – Used for full access, but should be rotated periodically.
+Private Endpoints – Restricts access to blobs within a Virtual Network (VNet).
+Customer-Managed Keys (CMK) – Allows encryption with customer-owned keys.
+
+-------------------------------------------------------------------------------------------------------------
+What is the maximum size of a blob in Azure Blob Storage?
+Answer:
+Block Blob: Up to 5 TB (individual block: 4 MiB–100 MiB, max 50,000 blocks).
+Append Blob: Up to 5 TB (max 50,000 blocks, 4 MiB per block).
+Page Blob: Up to 8 TiB, used in Azure VMs.
+-------------------------------------------------------------------------------------------------------------
+How can you migrate on-premises data to Azure Blob Storage?
+Answer:
+AzCopy (for fast uploads).
+Azure Migrate (for structured migration).
+Azure Data Factory (for ETL processes).
+Azure Import/Export (physical disk shipment).
+Azure Data Box (for petabyte-scale transfers).
+-------------------------------------------------------------------------------------------------------------
+
+Versioning vs. Other Data Protection Features
+Feature	Purpose
+Versioning		Keeps old versions of blobs on updates or deletions
+Soft Delete		Keeps deleted blobs for a retention period
+Snapshots		Manually created point-in-time copies of blobs
+Immutable Storage	Prevents modifications or deletions for compliance

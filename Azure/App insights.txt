@@ -1,0 +1,42 @@
+https://www.youtube.com/watch?v=zwPlWpvIIRc
+-----------------------------------------------------------------------------------
+Azure Application Insights Service is used to log datils of applications like method information, errors, stack trace, application performance(whether app is running slow/fast).
+
+-----------------------------------------------------------------------------------
+
+How do I enable Application Insights in an ASP.NET Core application?
+Install the Microsoft.ApplicationInsights.AspNetCore package and add builder.Services.AddApplicationInsightsTelemetry(); in Program.cs.
+
+-----------------------------------------------------------------------------------
+Where we can see logs which are logged by ILogger interface
+Ans: Azure portal -> App insights resource  Search on top (or) transaction search on left side pane.
+
+-----------------------------------------------------------------------------------
+13. How do I enable Application Insights in an Azure Function?
+Add Application Insights SDK and configure it in host.json or use the ILogger interface for logging
+
+-----------------------------------------------------------------------------------
+
+Can I export Application Insights data?
+Yes! You can export telemetry data to Azure Blob Storage, Power BI, or a Log Analytics workspace.
+
+-----------------------------------------------------------------------------------
+What’s the difference between Application Insights and Azure Monitor?
+Application Insights is for application-level monitoring (requests, dependencies, logs, etc.).
+Azure Monitor is a broader service covering VMs, containers, networks, etc.
+
+-----------------------------------------------------------------------------------
+To set up Application Insights in an ASP.NET Core application using the Program.cs file, follow these steps:
+1. Install the Required NuGet Package
+Run the following command in the Package Manager Console:Install-Package Microsoft.ApplicationInsights.AspNetCore
+2. Modify Program.cs to Add Application Insights
+builder.Services.AddApplicationInsightsTelemetry();
+
+3. Configure Instrumentation Key
+Add the following to your appsettings.json:
+{
+  "ApplicationInsights": {
+    "ConnectionString": "InstrumentationKey=your-instrumentation-key"
+  }
+}
+

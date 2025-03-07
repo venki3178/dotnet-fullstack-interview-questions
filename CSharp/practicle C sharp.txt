@@ -1,0 +1,117 @@
+public class CustomMiddleWare
+{	private readonly RequestDelegate _next;
+	public CustomMiddleWare(RequestDelegate next)
+	{
+		_next=next;
+	}
+	
+	public async Task InvokeAsync(HttpContext context){
+		Console.WriteLine("Before request processing");
+		await _next(context);
+		Console.WriteLine("After request Processing");
+	}
+}
+
+app.UseMiddleWare<CustomMiddleware>();
+
+app.Use(async(context, next)=>{
+	await next();
+})
+
+
+public GenericClass<T>{
+	private T data;
+	public void SetValue(T value)
+	{
+		data = value;
+	}
+
+	public T GetValue()
+	{
+		return data;
+	}
+}
+
+GenericClass<int> gC = new GenericClass<int>();
+	gC.SetValue(10);
+	int a = gC.GetValue();
+
+
+public Program
+{
+	private T data;
+	public void SetValue<T>(T value){
+		data = value;
+	}
+	
+	public T GetValue<T>(){
+	}
+}
+
+Program p=new Program();
+	p.SetValue<int>(10);
+	p.GetValue<int>();
+-----------------------------------------------------------------------
+ 
+Singleton Design Pattern
+
+public class Database
+{
+	public static Database db;
+	private Database(){}
+`	private static Object _lock = new Object();
+
+	public static GetInstance()
+	{
+		if(db ==null)
+		{
+			lock(_lock){
+				if(db==null){
+					return new Database();
+				}
+			}
+			
+		}
+			
+	}
+}
+
+--------------------------------------------------------------------
+Factory Design Pattern
+
+public interface IVehicle
+{
+
+}
+
+public Class Car : IVehicle
+{
+}
+
+public Class Bus : IVehicle
+{
+}
+
+public Class VehicleFactory
+{
+	public static IVehicle GetVehicleInstance(string vehicleType)
+	{
+		if(vehicleType == "Car")
+		{
+			return new Car();
+		}
+		else if(vehicleType == "Bus")
+		{
+			return new Bus();
+		}
+
+	}
+}
+
+IVehicle car = VehicleFactory.GetVehicleinstance("Car");
+IVehicle bus = VehicleFactory.GetVehicleinstance("Bus");
+
+
+---------------------------------------------------------------------------------------------------------------
+
+

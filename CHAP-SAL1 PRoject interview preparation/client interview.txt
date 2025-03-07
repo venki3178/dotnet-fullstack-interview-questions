@@ -1,0 +1,221 @@
+
+
+Monday Morning Schedule
+SIngleton, Factory, Custom Middelware, Repository pattern, Uint of work, CRUD, Transient, Scoped, 
+
+How to optimize query in NoSQL/Cosmos Db?
+1.Ensure frequently queried fields are indexed.
+2.Avoid over-indexing because too-many indexes slowdown writes
+3.In cosmos db use automatic indexing but override it for unused fields.
+4.prefer range indexes over hash indexes for range and sorting queries.
+5.choose right partition key that ensures data evenly distributed across partitions.
+6.avoid querying all fields using SELECT * syntax when only specific fields are needed.
+7.Cache frequent queries in Redis or in-memory cache.
+8.Use Eventual consistency where strong consistency is not required( It reduces RU consumption in Consoms DB).
+9.store data together to avoid expensive joins
+10.use batch writes instead of multiple individual writes.
+
+11.Use Cosmos db metrics to analyse slow queries.
+
+what is Async and Await?
+
+Async is keyword that makes method as asynchronous method.
+Await is keyword that asynchronously wait for task to complete without blocking main method.
+Task is an operation that runs asynchronously without blocking main method.
+---------------------------------------------------------------------------------------------------------------
+The Factory Design Pattern is a creational design pattern that is used to create objects without specifying the exact class of the object being created. Instead of calling a constructor directly, the pattern defines a separate factory method that encapsulates object creation logic.
+
+It is commonly used when:
+
+The exact type of object is determined at runtime.
+Object creation is complex or involves multiple steps.
+Code should be decoupled from the specific classes it instantiates.
+------------------------------------------------------------------------------------------------------------------
+what is servicebus?
+Azure Service Bus is a fully managed message broker that enables asynchronous communication between different applications, services, or microservices. It helps decouple application components and ensures reliable message delivery.
+
+---------------------------------------------------------------------------------------------------------------
+what is Azure KeyVault?
+Azure Key Vault is a cloud service for securing, storing, and managing secrets, encryption keys, and certificates in Azure.
+
+----------------------------------------------------------------------------------------------------------------
+What is Application Insights?
+Azure Application Insights Service is used to log datils of applications like method information, errors, stack trace, application performance(whether app is running slow/fast)
+
+----------------------------------------------------------------------------------------------------------------
+what are the different tools to monitor dotnet applcations
+
+Application Insights		Best for request tracking, performance monitoring, exceptions
+Azure Monitor			Centralized monitoring for all Azure services
+Log Analytics			Best for deep log analysis and debugging
+Azure Diagnostics		Best for VM-based .NET apps (event logs, metrics)
+Azure Service Health		Best for monitoring Azure outages
+Azure Profiler			Best for finding performance bottlenecks
+Azure Container Insights	Best for monitoring .NET apps in Docker/Kubernetes
+
+----------------------------------------------------------------------------------------------------------------
+what are the azure functions and it's types in azure?
+
+Azure Functions are fully managed serverless compute service that lets us to run event-driven code.
+
+Azure functions can be categorized based on trigger type, which defines what event starts the execution.
+
+TimerTrigge
+Executes the function on a schedule (like a CRON job).
+ HttpTrigger
+Executes when an HTTP request (GET, POST, etc.) is made.
+ BlobTrigger
+Executes when a new file is uploaded to Azure Blob Storage.
+QueueTrigger
+Runs when a message is added to an Azure Storage Queue.
+  ServiceBusTrigger, 
+Executes when a message is sent to an Azure Service Bus Queue or Topic.
+CosmosDBTrigger
+Executes when data changes in an Azure Cosmos DB collection.
+Event Grid Trigger
+Runs when an Azure Event Grid event occurs.
+Event Hub Trigger
+Listens for events from Azure Event Hubs
+
+----------------------------------------------------------------------------------------------------------------
+what are the different types of logs
+
+Trace		Most detailed logs, including all program execution details.
+Debug		Useful for debugging but not needed in production.
+Information	General flow of the application.
+Warning		Indicates something unexpected but the app still runs.
+Error		A failure in an operation.
+Critical	Serious failure that requires immediate attention.
+
+----------------------------------------------------------------------------------------------------------------
+
+Generics in C# allow you to create reusable, type-safe classes, methods, interfaces, and delegates without specifying a specific data type.
+
+---------------------------------------------------------------------------------------------------------------- What is Unit of Work?
+The Unit of Work (UoW) pattern is used to maintain a single transaction across multiple repository operations. It ensures that all database operations are committed together or rolled back if an error occurs.
+
+----------------------------------------------------------------------------------------------------------------
+
+Types of Exception Handling?
+
+Try-Catch Blocks    				Specific method-level error handling
+Global Exception Handling Middleware		Handle all unhandled exceptions it is inbuilt
+Custom Exception Middleware			Log & customize error responses
+Exception Filters				MVC-based exception handling
+Developer Exception Page			Debugging during development
+
+----------------------------------------------------------------------------------------------------------------
+what are trace logs?
+✅ Trace logs are detailed logs 
+✅ Used for debugging, monitoring, and root cause analysis.
+✅ Can be implemented using System.Diagnostics.Trace or ASP.NET Core ILogger.
+✅ Stored in files, databases, cloud services (Azure, AWS, GCP).
+
+
+ Trace.WriteLine("This is a trace log message.");
+        Trace.TraceInformation("This is an informational trace log.");
+        Trace.TraceWarning("This is a warning trace log.");
+        Trace.TraceError("This is an error trace log.");
+--------------------------------------------------------------
+class Program
+{
+    private readonly ILogger<Program> _logger;
+
+    public Program(ILogger<Program> logger)
+    {
+        _logger = logger;
+    }
+
+    public void Run()
+    {
+        _logger.LogTrace("This is a TRACE log.");
+        _logger.LogDebug("This is a DEBUG log.");
+        _logger.LogInformation("This is an INFO log.");
+        _logger.LogWarning("This is a WARNING log.");
+        _logger.LogError("This is an ERROR log.");
+        _logger.LogCritical("This is a CRITICAL log.");
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+new features in current asp.net core and c#
+
+----------------------------------------------------------------------------------------------------------------
+asp.net core api versioning
+
+----------------------------------------------------------------------------------------------------------------
+custom middleware
+Middleware in ASP.NET Core is a component that handles HTTP requests and responses in the request processing pipeline. Custom middleware allows developers to add their own logic, such as logging, authentication, exception handling, or request modification.
+
+----------------------------------------------------------------------------------------------------------------
+how middle ware works
+
+Middleware components are executed in the order they are registered in the pipeline. Each middleware can:
+Process the request before passing it to the next middleware.
+Modify the response before sending it back to the client.
+
+Client Request → Middleware 1 → Middleware 2 → Middleware 3 → Endpoint (Controller)  
+Response ← Middleware 3 ← Middleware 2 ← Middleware 1 ← Client
+
+
+----------------------------------------------------------------------------------------------------------------
+service lifetimes indepth
+
+Lifetime	Description							Real-Time Example
+Transient	A new instance is created every time it is requested.		Logging service that captures unique request logs.
+Scoped		A single instance is created per HTTP request 			Database context (EF Core) to maintain data consistency per request.
+Singleton	A single instance is created once per application 		Caching service or configuration settings.
+
+----------------------------------------------------------------------------------------------------------------
+API Versioning in ASP.NET Core
+API versioning refers to handling multiple versions of an API while maintaining compatibility for clients using different versions.
+
+Methods of API Versioning in ASP.NET Core 
+URL-Based Versioning
+	The version number is included in the URL.
+
+	GET /api/v1.0/products
+
+Query String Versioning
+	The version is passed as a query parameter.
+	GET /api/products?api-version=1.0
+
+Header-Based Versioning
+	The version is sent in the request header.
+	Request Headers:
+	api-version: 1.0
+
+Media Type Versioning (Content Negotiation)
+	The version is specified in the Accept header.
+	Accept: application/json; v=1.0
+----------------------------------------------------------------------------------------------------------------
+			Feature	In-Memory 🧠				Cached Memory 💾
+Definition		Data stored in RAM for quick access.		–Frequently used data temporarily stored for faster retrieval.
+Purpose			Stores actively used application data.		Stores frequently accessed data to reduce retrieval time.
+Persistence		Data is lost when the application stops or restarts.	Cache can persist across application restarts (e.g., Redis, disk-based caching).
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------

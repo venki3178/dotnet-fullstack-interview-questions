@@ -1,0 +1,228 @@
+How to optimize query in NoSQL/Cosmos Db?
+1.Ensure frequently queried fields are indexed.
+2.Avoid over-indexing because too-many indexes slowdown writes
+3.In cosmos db use automatic indexing but override it for unused fields.
+4.prefer range indexes over hash indexes for range and sorting queries.
+5.choose right partition key that ensures data evenly distributed across partitions.
+6.avoid querying all fields using SELECT * syntax when only specific fields are needed.
+7.Cache frequent queries in Redis or in-memory cache.
+8.Use Eventual consistency where strong consistency is not required( It reduces RU consumption in Consoms DB).
+9.store data together to avoid expensive joins
+10.use batch writes instead of multiple individual writes.
+
+11.Use Cosmos db metrics to analyse slow queries.
+
+---------------------------------------------------------------------------------------
+what is RU?
+
+RU stands for Request Unit it measures the throughput in azure cosmosdb. It represents cost of the request(read, write, delte etc.)
+
+---------------------------------------------------------------------------------------
+CAP Theorem (Consistency, Availability, Partition Tolerance)
+The CAP Theorem, introduced by Eric Brewer, states that in a distributed database system, it is impossible to achieve all three of the following properties simultaneously:
+
+Consistency (C) – Every read receives the most recent write (no stale data).
+Availability (A) – Every request (read/write) receives a response, even if some nodes are down.
+Partition Tolerance (P) – The system continues to function even if network failures occur between nodes.
+----------------------------------------------------------------------------------------
+Azure Cosmos db is a No SQL or document database
+
+---------------------------------------------------------------------------------------
+SQL				Azure Cosmos DB
+
+Relational Database		Non Relational Database
+Fixed Schema			No Fixed Schema 
+Vertical scalling		Horizontal Scalling
+
+--------------------------------------------------------------------------------------
+
+SQL				Azure Cosoms DB
+
+
+Server				Azure Cosoms Account
+  |				    |				
+Database			Database
+  |				    |
+Tables				Containers/Collections
+  |				    |		 
+Records/Rows			Document/Item
+
+
+---------------------------------------------------------------------------------------
+Partition Key is used to distribute data equally in logical partitions
+
+using Partition key cosmos knows from which partition to fetch record.
+
+Behind the scene --> logical partitions are present in physical servers
+
+1 physical server can contain 1 or more logical partitions
+
+-----------------------------------------------------------------------------------
+Is cosmos db container properties(coloumns) are case sensitive?
+
+Yes
+--------------------------------------------------------------------------------------
+How to choose good partition key?
+
+1. Data should be distributed equally across partitions
+---------------------------------------------------------------------------------------
+Throuput means performance.  More Throghput means more performance.
+
+---------------------------------------------------------------------------------------
+What is hot partition?
+
+Hot partition will occur when data/items are not equally distributed in logical partitions
+
+hot partition will have to handle more items/documents so it results in throttling.
+
+---------------------------------------------------------------------------------------
+How to fix Hot partitions?
+
+We need to create a new container with correct partition key and move data from old container to new container.
+
+We can do this with "Azure Cosmos db live data migration tool"
+
+---------------------------------------------------------------------------------------
+How to map C# model properties with cosmos db item property?
+
+Ans:  Using JsonProperty attribute
+
+[JsonProperty(PropertyName = "id")]
+public string Id
+
+---------------------------------------------------------------------------------------
+How to connect to cosmos db?
+
+Ans:  Using CosmosClient object
+
+	var cosmosClient = new CosmosClient(connectionSgtring);
+
+---------------------------------------------------------------------------------------
+How to Access Container C#?
+
+Ans:  using GetContainer method
+
+  var cosmosContainer = cosmosClient.GetContainer("databas-name", "container-name");
+
+---------------------------------------------------------------------------------------
+How to insert item into container?
+
+using CreateItem method
+
+ await cosmosContainer.CreateItemAsync<ModelClass>(object, new PartitionKey(object.property));
+
+---------------------------------------------------------------------------------------
+what is Upsert in cosmos db?
+
+if id is exists ---> record gets update
+if id is not exists -----> new record will be created
+
+ await cosmosContainer.UpsertItemAsync<ModelClass>(object, new PartitionKey(object.property));
+
+
+---------------------------------------------------------------------------------------
+How to delete item?
+
+using DeleteItemAsync
+await cosmosContainer.DeleteItemAsync<ModelClass>(id, new PartitionKey(object.property));
+
+---------------------------------------------------------------------------------------
+How to fetch data from cosmos db?
+
+var query = "write sql quer"
+
+var queryDefinition = new QueryDefinition(query);
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------

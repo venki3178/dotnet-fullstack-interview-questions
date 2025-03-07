@@ -6,3 +6,128 @@ How Indexes work in SQL
 
 Indexes in SQL implemented using B-Tree(balanced tree) structure. This data structure ensures that data is always sorted and allows SQL server to quickly 
 find data.
+
+1. Clustered Index
+
+Definition: A clustered index sorts and stores the rows of a table physically in the order of the indexed column(s).
+Data Storage: The table data is physically arranged in the order of the clustered index.
+Number per Table: Only one clustered index is allowed per table because the data can only be physically sorted one way.
+Primary Key: By default, a Primary Key automatically creates a clustered index (unless specified otherwise).
+Performance:
+Faster for range queries (BETWEEN, ORDER BY, GROUP BY) and searching with indexed columns.
+Slower for insert, update, delete operations if rows need to be moved due to sorting.
+
+2. Non-Clustered Index
+Definition: A non-clustered index stores a separate structure from the actual table data and contains pointers (row locators) to the actual rows.
+Data Storage: The table data remains unsorted, but the index stores sorted pointers to the data.
+Number per Table: A table can have multiple non-clustered indexes.
+Usage: Commonly used for columns frequently searched but not necessarily sorted.
+Performance:
+Faster for specific lookups but may require extra reads to fetch the actual data.
+Requires additional storage because the index is separate from the table.
+------------------------------------------------------------------------------------------
+
+Q1: How do you optimize SQL queries?
+✅ Answer:
+
+	Use indexes (Clustered & Non-Clustered)
+	Avoid SELECT *, fetch only required columns
+	Use EXPLAIN PLAN to analyze query performance
+	Optimize joins by choosing the right join type
+	Use partitioning for large tables
+	Avoid correlated subqueries, use joins instead
+	Use appropriate data types and normalize tables
+
+--------------------------------------------------------------------------------------
+What are the ACID properties of a transaction?
+✅ Answer:
+
+Atomicity: All operations in a transaction succeed or fail as a unit.
+Consistency: Ensures data integrity before and after a transaction.
+Isolation: Transactions are executed independently of each other.
+Durability: Once a transaction is committed, it is permanent.
+
+
+--------------------------------------------------------------------------------------------
+ What is a deadlock in SQL?
+✅ Answer: A deadlock occurs when two transactions are waiting for each other to release locks, causing a cycle.
+----------------------------------------------------------------------------------------------------
+What is the difference between UNION and UNION ALL?
+✅ Answer:
+
+UNION removes duplicates.
+UNION ALL keeps duplicates.
+
+-------------------------------------------------------------------------------------------------
+What are SQL Window Functions?
+✅ Answer: Window functions perform calculations across a set of rows related to the current row.
+
+Example:
+
+SELECT Name, Salary,
+RANK() OVER (ORDER BY Salary DESC) AS SalaryRank
+FROM Employees;
+
+Common window functions:
+
+RANK(), DENSE_RANK(), ROW_NUMBER()
+LEAD(), LAG()
+SUM() OVER(), AVG() OVER()
+
+------------------------------------------------------
+
+What is the difference between a Subquery and a Join?
+✅ Answer:
+
+Joins: combine data from multiple tables into a single result set.
+Subqueries: are queries within queries, often used when Joins are not efficient.
+------------------------------------------------------------------------------
+
+What are the different types of joins in SQL?
+✅ Answer:
+
+INNER JOIN – Returns matching rows in both tables.
+LEFT JOIN – Returns all rows from the left table, and matched rows from the right.
+RIGHT JOIN – Returns all rows from the right table, and matched rows from the left.
+FULL JOIN – Returns all rows when there is a match in either table.
+SELF JOIN – Joins a table to itself.
+CROSS JOIN – Returns the Cartesian product of both tables.
+---------------------------------------------------------------------------------
+A CTE (Common Table Expression) is a temporary result set that is defined within a SQL statement using the WITH clause. It improves query readability and can be used for recursion, simplifying complex queries, and breaking down large queries into smaller, manageable parts.
+
+-------------------------------------------------------------------------------
+
+Feature		CTE (Common Table Expression)					Temp Table (#TempTable)
+
+Scope		Exists only during query execution				Exists until explicitly dropped or session ends
+Storage		Stored in memory (RAM)						Stored in tempdb (disk-based)
+Performance	Faster for small datasets					Better for large datasets with indexes
+Indexing	Cannot have indexes (except for an indexed table in the CTE)	Can have indexes, primary keys, and constraints
+
+--------------------------------------------------------------------------------
+A Temporary Table (Temp Table) is a special table that is created in the tempdb system database and is used to store intermediate results temporarily during query execution.
+
+------------------------------------------------------------------------------
+Normalization is a process of dividing large tables into smaller tables to reduce redundancy and improve the data integrity.
+
+
+Normal Form			Description	
+1NF (First Normal Form)		Remove duplicate columns, ensure atomicity (single values in a cell)	
+2NF (Second Normal Form)	Remove partial dependency (Every non-key column must depend on the whole primary key)	
+3NF (Third Normal Form)		Remove transitive dependency (A non-key column should not depend on another non-key column)	
+BCNF (Boyce-Codd Normal Form)	Stronger 3NF (Every determinant must be a candidate key)
+
+---------------------------------------------------------------------------------
+Super Key:  		is any set of one or more columns that uniquely identifies each row
+Candidate Key:  	is the minimal Super Key—a key that uniquely identifies a row but contains no extra attributes.
+Primary Key		A table can have multiple Candidate Keys.One Candidate Key is selected as the Primary Key.
+
+-----------------------------------------------------------------------------------
+RANK()		✅ Yes (skips ranks)	1, 2, 2, 4
+DENSE_RANK()	❌ DOn't skip ranks	1, 2, 2, 3
+
+
+SELECT EmployeeID, Name, Salary,
+       DENSE_RANK() OVER (ORDER BY Salary DESC) AS DenseRankNum
+FROM Employees;
+

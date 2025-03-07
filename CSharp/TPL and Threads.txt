@@ -13,7 +13,8 @@ thus achieving speedup. The goal is to divide a task into smaller parts and run 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 What is Async and Await?
 
-Async and Await are keywords which are used to make a method as asynchronous method and performs an asynchronous operation.
+Async is keywords which is used to make a method as asynchronous method and performs an asynchronous operation.
+Await is keyword which is asynchronously waits for task to complete without blocking the main thread.
 
 Task: 
 A Task represents an operation that runs asynchronously without blocking the main thread.

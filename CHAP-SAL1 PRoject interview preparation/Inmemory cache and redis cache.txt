@@ -1,0 +1,24 @@
+IDistributeCache cache
+
+var jsonStringValue = await cache.GetstringAsyc(key);
+var data =jsonStringValue!=null ? JsonSerialiser.Deserialiser<T>(jsonStringValue): null;
+
+
+string JsonString = JsonSerialiser.Serialise(data);
+var options =new DistributedCacheEntryOptions(){
+	AbsoluteExpiryTimeRelativeToNow = TimeSpan.FromSeconds(60);
+await cache.SetStringAsync(key, data,options);
+
+
+services.AddMemoryCache();
+IMemoryCache cache;
+
+if(!cache.TryGetValue(value, out List<Products> products)){
+  var data =  fetch data from db
+	cache.Set(key, data, options)
+}	
+
+options = new MemoryCacheEntryOptions(){
+	AbsoluteExpirationTimeRelativeToNow = TimeSpan.FromSeconds(60);
+	SlidingExpiration = TimeSpan.
+}

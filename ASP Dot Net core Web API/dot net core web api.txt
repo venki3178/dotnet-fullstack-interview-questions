@@ -1,3 +1,135 @@
+1. What is ASP.NET Core?
+ASP.NET Core is a cross-platform, open-source, and high-performance framework for building modern web applications.
+
+2. What are the key features of ASP.NET Core?
+
+Cross-Platform: Runs on Windows, Linux, and macOS.
+Modular & Lightweight: Uses dependency injection (DI) and minimal overhead.
+Middleware Pipeline: Uses middleware components instead of traditional HTTP modules.
+Built-in Dependency Injection (DI): Allows services to be injected easily.
+Supports Razor Pages, MVC, and API Development.
+Integrated with Entity Framework Core for data access.
+Supports WebSockets, SignalR, and gRPC.
+
+
+-----------------------------------------------------------------------------
+4. What is Middleware in ASP.NET Core?
+✅ Answer:
+Middleware is a component that processes HTTP requests and responses in ASP.NET Core. Middleware can:
+
+Inspect or modify incoming requests.
+Pass the request to the next middleware in the pipeline.
+Modify outgoing responses.
+----------------------------------------------------------------------------
+5. What are Filters in ASP.NET Core?
+✅ Answer:
+Filters are used to execute code before or after certain stages of request processing in MVC applications.
+
+ Types of Filters:
+
+Authorization Filters - Handle authentication & authorization.
+Resource Filters - Execute before and after model binding.
+Action Filters - Run before and after an action method.
+Exception Filters - Handle errors and exceptions globally.
+Result Filters - Execute before and after action results.
+
+-------------------------------------------------------------
+6. What is Dependency Injection (DI) in ASP.NET Core?
+✅ Answer:
+Dependency Injection (DI) is a design pattern that reduces tight coupling between components by injecting dependencies instead of creating them manually.
+----------------------------------------------------------
+ What is Kestrel in ASP.NET Core?
+✅ Answer:
+Kestrel is the built-in, cross-platform web server in ASP.NET Core. It is lightweight, fast, and designed to handle high-performance applications.
+-----------------------------------------------------------------------
+What is the difference between AddSingleton(), AddScoped(), and AddTransient()?
+
+Singleton	One instance for the entire application
+Scoped		One instance per request
+Transient	New instance every time requested
+
+--------------------------------------------------------------------------
+0. How to implement Global Exception Handling in ASP.NET Core?
+✅ Answer:
+Use Middleware or Exception Filters to handle global errors.
+public class ExceptionMiddleware
+{
+    private readonly RequestDelegate _next;
+    public ExceptionMiddleware(RequestDelegate next) { _next = next; }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try { await _next(context); }
+        catch (Exception ex)
+        {
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsync($"Error: {ex.Message}");
+        }
+    }
+}
+------------------------------------------------------------------------
+ What is the difference between app.Use() and app.Run()?
+✅ app.Use() calls the next middleware, while app.Run() terminates the pipeline.
+---------------------------------------------------------------------
+ How do you enable CORS in ASP.NET Core?
+✅ app.UseCors(options => options.AllowAnyOrigin());
+
+---------------------------------------------------------------------
+app.Map in ASP.NET Core
+In ASP.NET Core, app.Map() is used to define endpoints in Minimal API. It provides a simple way to map HTTP routes without requiring controllers or attributes.
+
+Method	Description
+app.MapGet()	Maps an HTTP GET request
+app.MapPost()	Maps an HTTP POST request
+app.MapPut()	Maps an HTTP PUT request
+app.MapDelete()	Maps an HTTP DELETE request
+app.MapMethods()	Maps custom HTTP methods
+app.MapFallback()	Catches unmatched requests (default route)
+app.MapGroup()	Groups multiple endpoints under a common prefix
+
+var app = builder.Build();
+
+// Create a new product
+app.MapPost("/products", async (AppDbContext db, Product product) =>
+{
+    db.Products.Add(product);
+    await db.SaveChangesAsync();
+    return Results.Created($"/products/{product.Id}", product);
+});
+
+// Get all products
+app.MapGet("/products", async (AppDbContext db) =>
+    await db.Products.ToListAsync());
+
+// Get product by ID
+app.MapGet("/products/{id}", async (AppDbContext db, int id) =>
+    await db.Products.FindAsync(id) is Product product ? Results.Ok(product) : Results.NotFound());
+
+// Update a product
+app.MapPut("/products/{id}", async (AppDbContext db, int id, Product updatedProduct) =>
+{
+    var product = await db.Products.FindAsync(id);
+    if (product is null) return Results.NotFound();
+
+    product.Name = updatedProduct.Name;
+    product.Price = updatedProduct.Price;
+    await db.SaveChangesAsync();
+
+    return Results.NoContent();
+});
+
+// Delete a product
+app.MapDelete("/products/{id}", async (AppDbContext db, int id) =>
+{
+    var product = await db.Products.FindAsync(id);
+    if (product is null) return Results.NotFound();
+
+    db.Products.Remove(product);
+    await db.SaveChangesAsync();
+
+    return Results.NoContent();
+});
+----------------------------------------------------------------------
 What is Swagger?
 
 Swagger is used to describe Restful APIs.
@@ -31,3 +163,132 @@ Suitable for services that maintain state per request DbContext, logging service
 
 AddTransient:A new instance is created every time the service is requested.
 Suitable for stateless services that don't maintain state across requests.Configuration helpers, simple utility classes.
+--------------------------------------------------------------------------------------------------------
+
+What are the key components of a JWT token?
+Answer:
+A JWT consists of three parts, separated by dots (.):
+
+Header – Contains metadata (e.g., type of token and signing algorithm).
+Payload – Contains user claims (e.g., sub, exp, roles).
+Signature – Ensures token integrity and authenticity.
+
+-------------------------------------------------------------------------------------------------------
+How does JWT authentication work in .NET Core?
+Answer:
+
+User logs in with credentials.
+The server validates credentials and generates a JWT token.
+The client stores the token and includes it in the Authorization header for subsequent requests.
+The server validates the token using the secret key before processing requests.
+
+--------------------------------------------------------------------------------------------------------
+How do you generate a JWT token in .NET Core?
+Answer:
+You can generate a JWT token using JwtSecurityTokenHandler in a controller:
+
+
+    var token = new JwtSecurityToken(
+        claims: new[] { new Claim(JwtRegisteredClaimNames.Sub, model.Username) },
+        expires: DateTime.UtcNow.AddMinutes(30),
+        signingCredentials: creds
+    );
+
+
+--------------------------------------------------------------------------------------------------------
+
+ How do you secure an API endpoint with JWT authentication in .NET Core?
+Answer:
+Use the [Authorize] attribute in your controllers:
+
+
+--------------------------------------------------------------------------------------------------------
+How do you refresh a JWT token in .NET Core?
+Answer:
+JWTs are stateless, so they cannot be modified once issued. A refresh token is used to issue a new access token when the old one expires:
+
+Issue a refresh token along with the JWT.
+Store it securely on the client.
+When the JWT expires, send the refresh token to the API for a new JWT.
+Validate the refresh token and issue a new JWT.
+
+--------------------------------------------------------------------------------------------------------
+
+ How do you implement role-based authentication with JWT?
+Answer:
+
+Add user roles as claims in the token:
+[Authorize(Roles = "Admin")]
+[HttpGet("admin-data")]
+public IActionResult GetAdminData()
+
+--------------------------------------------------------------------------------------------------------
+What algorithms can be used to sign JWTs?
+Answer:
+Common signing algorithms:
+
+HMAC (Symmetric key): HS256, HS384, HS512
+RSA (Asymmetric key): RS256, RS384, RS512
+ECDSA (Elliptic Curve): ES256, ES384, ES512
+
+--------------------------------------------------------------------------------------------------------
+
+How do you validate and decode a JWT token?
+Answer:
+You can use JwtSecurityTokenHandler:
+
+var handler = new JwtSecurityTokenHandler();
+var token = handler.ReadJwtToken("<your-jwt-token>");
+var username = token.Claims.First(claim => claim.Type == "sub").Value;
+
+--------------------------------------------------------------------------------------------------------
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,  // Ensures the token is correctly signed
+            IssuerSigningKey = new SymmetricSecurityKey(key), // Secret key for signature validation
+            ValidateIssuer = true,  // Ensures the token is from a valid issuer
+            ValidIssuer = "your-app", // Expected issuer (set when generating the token)
+            ValidateAudience = true, // Ensures the token is for a valid audience
+            ValidAudience = "your-audience", // Expected audience
+            ValidateLifetime = true, // Ensures the token has not expired
+            ClockSkew = TimeSpan.Zero // Reduces the default time tolerance for expiration
+        };
+    });
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+API Gateway – Handles requests, enforces security, caching, and rate limits.
+
+--------------------------------------------------------------------------------------------------------
+What are the key components of Azure API Management?
+Answer:
+
+API Gateway – Handles requests, enforces security, caching, and rate limits.
+Developer Portal – A self-service portal for API documentation and testing.
+Management Plane – Used by admins to configure API settings.
+Analytics – Monitors usage, latency, and errors.
+--------------------------------------------------------------------------------------------------------
+
+What policies can you apply in API Management?
+Answer:
+Policies allow you to modify requests and responses. Some common policies include:
+
+Rate Limiting – Restricts the number of API calls per user.
+JWT Validation – Ensures the request contains a valid token.
+IP Filtering – Allows or denies access based on IP addresses.
+Caching – Stores responses to improve performance.
+Rewrite URLs – Changes request/response URLs dynamically.
+
+
+What are the different types of blobs in Azure?
+Answer:
+
+Block Blob – Stores large binary files (e.g., images, videos).
+Append Blob – Optimized for log data, where new data is appended.
+Page Blob – Stores random-access data (e.g., virtual disks for VMs).

@@ -1,0 +1,74 @@
+What is Memory Cache?
+
+In .NET, MemoryCache is used for in-memory caching to store frequently accessed data, reducing the need for expensive database queries or computations.
+
+the Microsoft.Extensions.Caching.Memory namespace in .NET Core and .NET 5+.
+
+Steps: Create MemoryCache object 
+	MemoryCache cache = new MemoryCache(new MemoryCacheOptions())
+
+in options we specify expiry time and reset time
+--------------------------------------------------------------------------------
+
+In memory vs Cache memory
+
+In Memory
+Data stored in RAM during application execution.
+Data is lost when the application restarts.
+List<User> users = new List<User>();
+
+
+Cache Memory
+Temporary storage to hold frequently accessed data.
+Also volatile, but can be refreshed or loaded from external storage (DB, files, etc.).
+memoryCache.Set("users", users, TimeSpan.FromMinutes(10));
+
+
+--------------------------------------------------------
+Generics:
+
+
+Generics in C# allow us to define classes, interfaces, and methods with a placeholder for data types. This increases code reusability, type safety, and performance by allowing a single implementation to work with multiple data types.
+------------------------------------------------------------------------------------------
+Task.Wait() vs await
+
+1. Task.Wait()
+Blocks the calling thread until the task completes.
+Can cause deadlocks in UI applications.
+Does not use the async/await pattern effectively.
+
+static void Main()
+    {
+        Task task = DoSomethingAsync();
+        task.Wait(); // Blocks the main thread until the task completes
+        Console.WriteLine("Task Completed");
+    }
+
+
+await Keyword
+Asynchronously waits for the task to complete without blocking the thread.
+
+--------------------------------------------------------------------------------------
+Struct vs Class
+
+Struct:
+It is Value type
+Stored in Stack
+Cannot be null unless we make it nullable manually
+Do not support inheritance
+Require boxing and unboxing
+
+Class
+Reference type
+stored in heap
+Can be nullable
+Supports inheritance
+No need of boxing and unboxing issues
+
+=-------------------------------------------
+what is the use of constructor in abstract class
+✅ Abstract class constructors are called before derived class constructors.
+✅ Used to initialize fields and enforce rules before object creation.
+✅ Derived classes must call the base constructor (if required).
+
+The main purpose of a constructor in an abstract class is to initialize fields, set up default values, or enforce logic before any derived class is created.

@@ -11,7 +11,7 @@ Clean Code Principles:
 --------------------------------------------------------------------------------------------
 what is DRY(Don't Repeat Yourself)?
 
-The Idea of DRY principle is reusing the logic instead of duplicating same logic in different places of the application.
+The Idea of DRY principle is implement reusable logic instead of duplicating same logic in different places of the application.
 It can be implement by Method extraction, Separate class, Inheritance etc.
 
 --------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ The idea of KISS principle is to avoid unnecessary complexity and over-engineeri
 --------------------------------------------------------------------------------------------
 what is YAGNI Priciple:(You Aren't Gonna Need it)?
 
-This principle advises only implement features that are currently needed, rather than adding features based on speculative future requirements.
+The idea of YAGNI principle is to implement features that are currently needed, avoid adding future features.
 
 ---------------------------------------------------------------------------------------------
 Solid Principles:
