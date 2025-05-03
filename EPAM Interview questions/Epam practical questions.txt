@@ -1,0 +1,12 @@
+Linq
+--------------------------------------------------
+1.Write a LINQ query to print the number of Employees in Each department list
+2.Find all the names and avg marks of students whose avg marks >=75(coding question)
+3.write a linq query to find all employees who joined in last 1 year
+
+SQL
+-----------------------------------------------
+
+
+DSA
+--------------------------------------------------

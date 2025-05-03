@@ -1,0 +1,172 @@
+WebAPi and dotnet core
+------------------------------------------------------------------------------------------------------------
+1.What is content negotiation?
+	https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation
+2.Why should we not use Get for saving the data and Post for retrieving the data?
+2.What is IOC containers
+3.What is the difference between Dependency injection and dependency inversion principle?
+4.attribute and conventional routing in api
+5.How to solve dependency injection if multiple implementations from same interface -- https://www.youtube.com/watch?v=hd4uZsVHe-Y
+6.API versioning,
+7.API rate limiting,
+	Rate Limiting is the process of controlling the number of requests for a resource within a specific time window. Each unique user/IP address/client 	will have a limitation on the number of requests to an API endpoint. https://www.c-sharpcorner.com/article/implement-rate-limiting-in-asp-net-core-	web-api/
+8.MVC Controller vs Web API Controller 
+9.How do you share you API's With client.
+10.post vs Patch
+11.Verbs in Webapi
+12.Explain Middleware in .Net core.How to implement Custome Middleware?
+13.Differences between .Net and .Net Core?
+14.New features in .net core latest version
+15.What is Restful Api?
+16.what are rest principles
+17.How routingworks in asp.net core web api and MVC
+18.what is x-api-key?How you pass in headers?
+19.how data picked from header
+20.controller class  can use without base class
+21.How access_token will work
+22.why we declare HTTPPOST("name")
+23.i want multiple paths to execute one api how we can achive this(ex- ap/payment/add,api/payment both methods should hit single api
+24. InProcess vs out of process 
+25. What is kestral server
+26."How to Do Root cause analyze, when a web page is loading takes time without any prior 
+knowledge in this web application"
+
+C#:
+--------------------------------------------------------------------------------------------
+1.Stack and heap memory, which data will save where?
+2.What are value and reference types 
+3.State management techniques, session state 
+4.Access modifiers 
+5.Garbage collector
+6.Difference between Task and Thread?
+7.Extention method
+8.Sting.Equals vs ==
+9.let vs var
+10.readonly vs const
+Generics
+Struct and class with example,,
+Example for stack and heap memory storage
+How automaticall or manually object can be desposed 
+ Boxing and unboxing ?
+What is Managed and UnManaged Code
+ Generation Of Garbage collector, Still we have GC in .NET 8.
+ How to cleanup Unmanaged code. and what is Garbage collector
+ASP.Net core web API - What are Filters? What is the sequence that they execute? Can we change sequence?
+what is the use of using keyword here ?"
+
+Asynchronus programming
+---------------------------------------------------------------------------------
+1.how to make a call of async function in non async method
+return type of Async method
+why using async methods
+Use of configureawait() method?
+
+unit testing
+------------------------------------------------
+Mocking framework used or not ?
+Unit testing - how will you find coverage ? tools used for this?
+
+
+Desing patterns and principles
+----------------------------------------------------------------------------------------
+1.What are Solid principles?
+2. firstordefault() vs first()
+3.Liskov's substitution principle with example,
+4.Solid Priciples? KISS, DRY and YAGNI Principles
+5.Explain about Factory Design Pattern
+What is Interface Seggregation with an Example
+
+EntityFramework core
+------------------------------------------------------------------------------------
+Difference between IQuerable and IEnumerable / Write code for it.
+what is deferred execution in linq
+Difference between Dapper and Entity Framework?
+How to call stored procedures in Entity Framework?
+What are uses of Migration file in Enitity Framework?
+What is CodeFirst Approach in Enity Framework?
+different of Single,singleOrdefaults and first, firstOrDefault, why using since both methods returns one row only
+when use .count propery and count() method of collections
+What is DataSet & DataReader, which would you prefer, which one is better in terms of Performance. Which requires an Active Connection with DB
+
+
+scenario based questions
+----------------------------------------------------------------------------------------------------
+1.For which type of data you will use cache?
+2.What technique you will use to keep the data on common server?
+3.How to improve performance of web api
+	https://www.c-sharpcorner.com/article/Tips-And-Tricks-To-Improve-WEB-API-Performance/
+4.How do you handle overflow exceptions 
+
+
+Authentication and autherization
+---------------------------------------------------------------------------------------------
+1.Authentication Flow
+
+
+Angular
+--------------------------------------------------------------------------------------------
+1.diff between NgOninit and constructor
+2.Promises vs observables.
+3.how to pass data from parent to child component 
+4.Pipes
+5.services
+6.different ways to pass data.
+7.Lazy loading,
+8.life cycle hooks,
+9.rxjs debouncetime and throttletime, file upload flow.
+10.How an Angular App Work Behind The Scenes
+11.Difference between pre load modules and lazy loading
+12.What is Entry point in Angular?
+13.What are sections in AppModule?
+14.Explain how to implement Routing in Angular?
+15.How do you protect routes in angular from unauthrized access
+ Where did you use Javascript in your Project ? and what is the Diff between ==, === in JavaScript
+
+
+Project related or managerial
+Roles and Responsobilities in last project
+How to manage situation like ... api is down which is dependent on different project/team.... but task assigned to you...
+ If an issue is present only in the Production, which is not there in either Dev or UAT, how do you identidy the reason for the issue.
+about challenges faced in previous project.
+
+
+
+
+Azure
+--------------------------------------------------------------------------------------
+1.Bolb vs File storage
+Function App - Used case from project
+APIM 
+Logs / Monitoring 
+What is API Gateway ? why we use it ?
+How to check Azure AppInsights logged details
+01) What is Queing (Message Queing)
+what services have u used ?
+Explain about app services.
+Functions - what type of triggers you have used?
+How to do monitoring?
+How to do logging?
+Azure Service Bus - queue and topics
+How to handle failure in message delivery?
+
+
+git 
+-----------------------------------------------------------
+1. merge vs pus68
+2.Rebase in git
+3.Cherry pick  - merge your changes from one branch to another without using Merge
+
+Sql
+--------------------------------------------------------------
+1.Transaction Isolation level in SQL
+2.Index in sql
+3.Join in SQL example
+4.Improve sql query performance
+5.Clustered vs non-clustered indexes?
+6.Expain about ACID properties?	
+7.why we need normalization in Database design?
+8.which tool used for identifying security vulnerability like SQL injjection etc
+Write a sql query to get top 2 highest salary from employee  
+Rownumber, Rank, Denserank concept)
+24) How will you improve performance tuning in SQL query (Sql profilers)
+
