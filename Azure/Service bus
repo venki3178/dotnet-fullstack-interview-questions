@@ -3,7 +3,7 @@
 applications and services.
 
 2.What is Queue?
-"A queue is a messaging store that enables one-to-one communication by transmitting messages from a single sender to a
+"A queue enables one-to-one communication by transmitting messages from a single sender to a
 single receiver."
 
 3.What is Topic/Subscriptions?
