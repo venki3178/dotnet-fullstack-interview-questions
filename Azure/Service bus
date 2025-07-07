@@ -8,4 +8,17 @@ single receiver."
 
 3.What is Topic/Subscriptions?
 Topics enales one-to-many communication by allowing multiple applications to subscribe to single topic. Messages sent to the
-topic are then delivere to all the subscriptions associated with that topic
+topic are then delivere to all the subscriptions associated with that topic.
+
+4.What is ServiceBus Client?
+Servicebus client is a primary interface for developers to interacting with serciebus client library.
+
+5.what is service bus sender?
+It is created by service bus client and this allows us to send messages to servicebus. It is scoped to queue or topic,
+
+6.what is service bus receiver?
+It is created by service bus client and this allows us to receive messages from servicebus. It is scoped to queue or topic.
+
+7.What is service bus processor?
+It is created by service bus client. This is an abstraction around a set of receivers.
+
