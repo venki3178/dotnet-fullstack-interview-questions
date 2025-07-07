@@ -1,7 +1,11 @@
 1.What is Azure Service bus?
-  Azure Service bus is a messaging Service provided by Microsoft Azure that enables reliable asynchronus communication between
+  Azure Service bus is a messaging Service that enables reliable asynchronus communication between distributed
 applications and services.
 
 2.What is Queue?
-"A queue is a messaging store that facilitates one-to-one communication by transmitting messages from a single sender to a
+"A queue is a messaging store that enables one-to-one communication by transmitting messages from a single sender to a
 single receiver."
+
+3.What is Topic/Subscriptions?
+Topics enales one-to-many communication by allowing multiple applications to subscribe to single topic. Messages sent to the
+topic are then delivere to all the subscriptions associated with that topic
