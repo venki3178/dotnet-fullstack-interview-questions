@@ -1,4 +1,3 @@
---A1
 --Write a SQL query to create a new column named "New_salary" within their "employees" table.
 --This column will reflect the adjusted salary after applying a 20% raise to the current salary ("salary").
 --Steps to calculate the salary increment:
