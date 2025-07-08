@@ -67,6 +67,12 @@ Mocking framework used or not ?
 Unit testing - how will you find coverage ? tools used for this?
 
 
+
+repository pattern and unit of work
+-------------------------------------------------------------
+Repository pattern is framework and it abstracts data access layer. It hides how data stored or retried through underlying datasource.
+
+
 Desing patterns and principles
 ----------------------------------------------------------------------------------------
 1.What are Solid principles?

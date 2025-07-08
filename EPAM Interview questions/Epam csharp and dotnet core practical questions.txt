@@ -1,0 +1,22 @@
+1.explicit interfaces and multiple inheritance with interfaces
+2.dependency injection implementation for one interface with multiple classes
+3.handle unmanaged code
+4.in memory caching and redis caching
+5.Crud operations
+6.custom middleware
+7.extension metods
+8.custom filters
+9.siglton DP and Factory DP
+10.interface segregation with example
+11.liskov's principle with example
+12.Transient and scoped state with example
+13.Interface and abstract with example
+14.Api versioning
+14.content negotiation
+15.api key
+16..Generic Repository Pattern and Unit of Work with crud operations
+5.Generics Class and methods with implementations
+Delegates types and its implementation in multiple ways
+.SQL Funcitons and Stored procedures
+14.SQL Views, Temp table, CTE
+Authentication and Autherization
