@@ -1,3 +1,4 @@
+--table: employeesA1
 --Write a SQL query to create a new column named "New_salary" within their "employees" table.
 --This column will reflect the adjusted salary after applying a 20% raise to the current salary ("salary").
 --Steps to calculate the salary increment:
@@ -13,4 +14,4 @@
 --Return the columns emp_id, name, salary, and 'New_salary'.
 --Order the output by the emp_id in ascending order.
 
-SELECT e.*, ROUND(e.salary+e.salary*0.2, 0) AS 'New_Salary' from employees e;
+SELECT e.*, ROUND(e.salary+e.salary*0.2, 0) AS 'New_Salary' from employeesA1 e;
