@@ -1,0 +1,13 @@
+Multitasking: is a concept to running multiple processes/tasks parallelly.
+Multithreading: is a concept of running multiple threads within single process parallelly.
+
+Multitasking is like your computer running multiple apps at once.
+Multithreading is like one app doing multiple things at once.
+
+
+Process: is a running application in Operating system.
+Thread: A light weight unit of process.
+
+A process has at least one thread which is commonly called as main thread.
+
+A Single process can have multiple threads.
