@@ -1,0 +1,117 @@
+DateTime.Now			Returns the current local date and time, including the time component.
+DateTime.Now.Date		Returns the current local date with time set to 00:00:00.
+
+DateTime.Now.Millisecond	Gets the millisecond (0-999).
+DateTime.Now.Second		Gets the second (0-59).
+DateTime.Now.Minute		Gets the minute (0-59).
+DateTime.Now.Hour		Gets the hour (0-23).
+
+DateTime.Now.Day		Gets the day of the month (1-31). ex: if date is 9-July-2025 it returns 9
+DateTime.Now.DayOfWeek 		Gets the day of the week (Sunday to Saturday).
+DateTime.Now.DayOfYear		Gets the day of the year (1-366).
+
+DateTime.Now.Month		Gets the month (1-12).
+
+DateTime.Now.Year		Gets the year.
+
+DateTime.Now.Kind		Indicates whether time is Local, Utc, or Unspecified.
+
+
+
+DateTime.Now		Current local date and time.	
+DateTime.UtcNow		Current UTC date and time.	
+DateTime.Today		Current date with time 00:00:00.	
+DateTime.MinValue	Represents 1/1/0001 00:00:00.
+DateTime.MaxValue	Represents 12/31/9999 23:59:59.9999999.
+
+
+Date methods:
+
+Method				Description		Example
+AddDays(double)			Adds days		dt.AddDays(5)
+AddMonths(int)			Adds months		dt.AddMonths(1)
+AddYears(int)			Adds years		dt.AddYears(2)
+AddHours(double)		Adds hours		dt.AddHours(3.5)
+AddMinutes(double)		Adds minutes	  	dt.AddMinutes(45)
+AddSeconds(double)		Adds seconds		dt.AddSeconds(30)
+AddMilliseconds(double)		Adds milliseconds	dt.AddMilliseconds(500)
+Add(TimeSpan)			Adds a TimeSpan	 	dt.Add(TimeSpan.FromDays(2))
+
+✅ 2. Compare Methods
+Method					Description						Example
+
+Compare(DateTime, DateTime)		Returns -1, 0, or 1 (before, equal, after)		DateTime.Compare(dt1, dt2)
+CompareTo(DateTime)			Compares current DateTime to another			dt1.CompareTo(dt2)
+Equals(DateTime)			Checks if two DateTimes are equal			dt1.Equals(dt2)
+
+✅ 3. Parse & Convert Methods
+Method					Description			Example
+
+Parse(string)				Converts string to DateTime	DateTime.Parse("2025-07-09")
+ParseExact(string, format, provider)	Parses using exact format	DateTime.ParseExact("09/07/2025", "dd/MM/yyyy", CultureInfo.InvariantCulture)
+TryParse(string, out DateTime)		Safe parse (no exception)	DateTime.TryParse("invalid", out dt)
+
+✅ 4. Subtract Methods
+Method	Description	Example
+
+Subtract(DateTime)	Returns TimeSpan between dates	dt1.Subtract(dt2)
+Subtract(TimeSpan)	Subtracts a time duration	dt.Subtract(TimeSpan.FromDays(1))
+
+✅ 5. ToString Methods
+Method			Description				Example
+
+ToString()		Converts to string			dt.ToString()
+ToString(format)	Converts using a custom format		dt.ToString("dd-MM-yyyy HH:mm")
+ToShortDateString()	Returns date only			dt.ToShortDateString()
+ToShortTimeString()	Returns time only			dt.ToShortTimeString()
+
+✅ 6. Conversion Methods
+Method			Description				Example
+ToLocalTime()		Converts UTC → Local time		DateTime.UtcNow.ToLocalTime()
+ToUniversalTime()	Converts Local → UTC time		DateTime.Now.ToUniversalTime()
+ToLongDateString()	Full date string			dt.ToLongDateString()
+
+
+
+
+DateTime.Now
+
+	Returns the current local date and time, including the time component.
+	
+	DateTime now = DateTime.Now;
+	Console.WriteLine(now); // e.g., 2025-07-09 16:35:42
+
+
+Use case:
+Displaying current time to users in local timezone.
+Logging local events.
+---------------------------------------------------------------------------------
+
+DateTime.Today (or) DateTime.Now.Date
+	
+	Returns the current local date with time set to 00:00:00.
+
+	DateTime today = DateTime.Today;
+	Console.WriteLine(today); // e.g., 2025-07-09 00:00:00
+
+Use case:
+Comparing only the date (ignoring time).
+Daily summary reports, filtering by day.
+
+----------------------------------------------------------------------------------
+
+DateTime.UtcNow
+
+	Returns the current date and time in Coordinated Universal Time (UTC)
+
+	DateTime utcNow = DateTime.UtcNow;
+	Console.WriteLine(utcNow); // e.g., 2025-07-09 11:05:42 (UTC)
+
+Use case:
+Storing consistent timestamps across multiple time zones (e.g., databases, logs).
+Working with APIs and systems expecting UTC.
+--------------------------------------------------------------------------------------
+
+
+
+
