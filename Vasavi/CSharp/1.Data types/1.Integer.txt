@@ -1,0 +1,174 @@
+What is int in C#?
+	int is a value type in C# that represents a 32-bit signed integer.
+	It is an alias of System.Int32.
+
+What is the size of an int?
+	int occupies 4 bytes (32 bits) of memory.
+
+What is the range of int in C#?
+	From -2,147,483,648 to +2,147,483,647.
+
+Difference between int and Int32?
+	No difference. int is simply a keyword alias for System.Int32.
+
+int a = 10;
+Int32 b = 20;
+
+
+Is int a value type or reference type? Why?
+	int is a value type.
+	Because it stores the actual value directly in memory, not a reference.
+
+	Default value of an uninitialized int?
+	0 (when declared as a class-level variable).
+
+Can an int be null? How?
+	Normally no, but by using nullable types:
+	int? value = null;
+
+What happens if an integer overflows in C#?
+	By default, C# does not throw an exception.
+
+	It silently wraps around (overflow behavior).
+int x = int.MaxValue;
+x = x + 1;  // Result is int.MinValue (wraps around)
+
+
+How to handle integer overflow?
+
+	Using checked to force exception on overflow.
+	Using unchecked to ignore overflow (default behavior).
+
+checked {
+    int x = int.MaxValue;
+    x = x + 1;  // Throws OverflowException
+}
+
+unchecked {
+    int x = int.MaxValue;
+    x = x + 1;  // Silent overflow
+}
+
+
+What is boxing and unboxing in relation to int?
+
+	Boxing: Converting int (value type) into object (reference type).
+	Unboxing: Converting object back into int.
+
+Example:
+int num = 123;
+object obj = num;       // Boxing
+int result = (int)obj;  // Unboxing
+
+
+Difference between Parse() and TryParse()?
+int.Parse()					int.TryParse()
+Throws exception if invalid			Returns false if invalid
+Suitable if you expect valid input		Safe for uncertain input
+
+Example:
+int a = int.Parse("123");
+int b;
+bool isValid = int.TryParse("abc", out b);  // isValid = false
+
+
+What will happen in this code?
+int a = 10;
+object b = a;  // Boxing (stores 10)
+a = 20;        // a changed, b not affected
+Console.WriteLine(b);  // Output: 10
+
+
+What are const int and readonly int? Difference?
+const int: Fixed at compile-time, cannot change.
+readonly int: Set at declaration or in constructor, changeable only during object creation.
+
+const int c = 10;
+readonly int r;
+public Example() {
+    r = 20;  // Allowed in constructor
+}
+
+
+Is integer division different from floating-point division?
+Yes. Integer division discards fractional parts.
+
+Example:
+int x = 5 / 2;        // Result: 2
+double y = 5.0 / 2;   // Result: 2.5
+
+
+Explain memory allocation of an int. Where is it stored?
+Stored on the stack when used as local variables.
+When boxed, stored on the heap.
+
+
+What is the difference between signed and unsigned integers? Does C# support both?
+Signed (int)				Unsigned (uint)
+Supports negative and positive		Supports only positive numbers
+Range: -2.1B to +2.1B			Range: 0 to 4.2B
+
+Example:
+uint positiveOnly = 100u;
+
+
+Why would you use nullable int?
+To represent missing or optional numeric data (like in database columns that allow null).
+
+Example:
+int? age = null;
+
+
+What is the difference between default(int) and null?
+default(int) returns 0.
+null cannot be assigned to int (unless nullable int?).
+
+Example:
+
+int x = default(int);   // x = 0
+
+int? y = null;          // Nullable int assigned null
+
+
+How does integer comparison work in C#?
+Based on value comparison.
+Two int values are equal if their numeric values are equal.
+
+Example:
+int a = 5;
+int b = 5;
+bool isEqual = (a == b);  // True
+
+
+
+1. Write a method that accepts a string and returns an int. Safely handle invalid input.
+public int SafeStringToInt(string input)
+{
+    int result;
+    if (int.TryParse(input, out result))
+        return result;
+    else
+        return 0;  // or handle as needed
+}
+
+
+2. Demonstrate integer overflow handling using checked.
+public void HandleOverflow()
+{
+    try
+    {
+        checked
+        {
+            int num = int.MaxValue;
+            num = num + 1;  // Throws OverflowException
+        }
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("Integer overflow occurred.");
+    }
+}
+
+
+3. Is the following code valid? Why?
+int x = null;   // ❌ Invalid, int cannot be null.
