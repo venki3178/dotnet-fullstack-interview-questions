@@ -1,0 +1,31 @@
+What is double in C#?
+A 64-bit double-precision floating-point number (based on IEEE 754 standard).
+
+What is the size of double?
+8 bytes (64 bits).
+
+What is the range of double?
+Approximately ±5.0 × 10⁻³²⁴ to ±1.7 × 10³⁰⁸.
+
+What is the precision of double?
+Approximately 15 to 16 significant digits.
+
+Is double a value type or reference type?
+Value type (stored on the stack).
+
+What is the default value of a double?
+0.0d
+
+What is the literal suffix for a double?
+d or D (optional, as double is the default for floating-point literals).
+
+Can double be nullable?
+Yes, as double?.
+
+Why is double preferred over float in most cases?
+Because it offers higher precision and is the default for floating-point literals.
+
+How to format a double to 2 decimal places?
+double value = 123.45678;
+Console.WriteLine(value.ToString("F2"));  // Outputs 123.46
+What is Double.NaN in C#?

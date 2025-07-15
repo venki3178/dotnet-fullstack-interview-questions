@@ -1,0 +1,128 @@
+1️⃣ What is a string in C#?
+A string in C# is a sequence of Unicode characters used to store text data.
+
+Technically, it's an object of the System.String class.
+
+2️⃣ Is string a value type or reference type?
+Reference type.
+Strings are stored on the heap, not the stack, even though they behave like primitive types in many ways.
+
+3️⃣ Why is string immutable in C#?
+Strings are immutable to:
+Ensure thread safety.
+Enable string interning and memory optimization.
+Prevent accidental modification of shared string instances.
+Once created, a string's content cannot be changed. Modifying a string creates a new string object.
+
+4️⃣ Difference between String and string?
+string: C# keyword (alias) for System.String.
+String: .NET class (System.String).
+Functionally, there’s no difference; both refer to the same type.
+Convention: Use string for variable declarations and String for static methods:
+
+string message = "Hello";
+string empty = String.Empty;
+
+5️⃣ What namespace does string belong to?
+System namespace.
+using System;
+
+6️⃣ What is the default value of a string?
+The default value is null, because it's a reference type.
+
+7️⃣ Can a string be null?
+✅ Yes.
+
+
+8️⃣ Can a string be empty?
+✅ Yes.
+An empty string is:
+
+string text = "";
+
+9️⃣ What is string.Empty?
+string.Empty is a read-only field representing an empty string ("").
+
+string emptyText = string.Empty;
+Using string.Empty is often preferred over "" for clarity and avoiding repeated empty string allocations.
+
+🔟 How to check if a string is empty or null?
+Using:
+
+string.IsNullOrEmpty(variable)
+Example:
+
+if (string.IsNullOrEmpty(text))
+{
+    Console.WriteLine("Text is empty or null.");
+}
+
+
+🔷 1. Checking & Searching
+Method			Purpose
+
+Contains()		Checks if substring exists
+StartsWith()		Checks if string starts with...
+EndsWith()		Checks if string ends with...
+IndexOf()		Finds index of first occurrence
+LastIndexOf()		Finds index of last occurrence
+IsNullOrEmpty()		Checks for null or empty string
+IsNullOrWhiteSpace()	Checks for null, empty, or whitespace
+
+🔷 2. Modification & Formatting
+
+Method			Purpose
+ToUpper()		Converts to uppercase
+ToLower()		Converts to lowercase
+Trim()			Removes leading/trailing spaces
+TrimStart()		Removes leading spaces
+TrimEnd()		Removes trailing spaces
+Replace(old, new)	Replaces substrings
+Remove(startIndex)	Removes from a specific index
+Insert(index, value)	Inserts string at specified index
+PadLeft(totalWidth)	Pads string on left
+PadRight(totalWidth)	Pads string on right
+Substring(startIndex)	Extracts substring
+Substring(start, length)	Extracts substring of given length
+
+🔷 3. Splitting & Joining
+Method			Purpose
+Split(delimiter)	Splits string into array
+Join(separator, array)	Joins array into single string
+
+🔷 4. Comparison
+Method			Purpose
+Compare(strA, strB)	Compares two strings
+CompareTo(otherString)	Compares with another string
+Equals(otherString)	Checks for equality
+Equals(otherString, comparison)	Compares using specific comparison rules
+
+🔷 5. Formatting & Conversions
+Method		Purpose
+Format()	Inserts variables into placeholders
+ToString()	Converts object to string (inherited)
+Copy() (deprecated)	Creates a new string with same value
+
+🔷 6. Escape & Special Character Handling
+Method			Purpose
+Replace("\n", "<br>")	Handling newlines, tabs, etc.
+
+🔷 7. Special/Advanced
+Method		Purpose
+String.Concat()	Concatenates multiple strings
+String.Join()	Joins elements into string
+String.Intern()	Returns interned string instance
+IsInterned()	Checks if string is interned
+
+🔷 8. Static Helper Methods
+Method				Purpose
+string.IsNullOrEmpty()		Static method for null/empty check
+string.IsNullOrWhiteSpace()	Static method for null/empty/whitespace
+
+
+
+
+
+
+
+

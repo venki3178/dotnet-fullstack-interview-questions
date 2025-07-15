@@ -1,0 +1,98 @@
+What is decimal in C#?
+A 128-bit data type used for high-precision floating-point arithmetic.
+
+What is the size of decimal?
+16 bytes (128 bits).
+
+What is the range of decimal?
+±79,228,162,514,264,337,593,543,950,335 with 28-29 significant digits.
+
+Is decimal a value type or reference type?
+Value type.
+
+What is the default value of an uninitialized decimal?
+0.0m
+
+How to declare a decimal literal in C#?
+By appending m or M.
+
+decimal price = 100.25m;
+Difference between float, double, and decimal?
+
+
+Type		Size		Precision		Usage
+float		32-bit		~7 digits		Scientific calculations
+double		64-bit		~15-16			General-purpose
+decimal		128-bit		~28-29			Financial/money handling
+
+Can decimal store integers?
+Yes, decimal can store whole numbers as well.
+
+What namespace does decimal belong to?
+System
+
+
+Why is decimal preferred for financial calculations?
+Due to higher precision and reduced rounding errors compared to float or double.
+
+How does rounding work in decimals?
+You can specify rounding using methods like:
+
+decimal roundedValue = Math.Round(someDecimal, 2);
+
+
+What will happen in this code?
+decimal a = 1.0m / 3.0m;
+Console.WriteLine(a);
+
+Answer:
+It will output a high-precision result (up to 28-29 digits).
+
+
+How to convert a string to decimal safely?
+decimal.TryParse("123.45", out decimal result);
+
+
+Is decimal slower than double? Why?
+Yes, because decimal operations are more complex due to higher precision.
+
+
+🔹 Practical/Scenario-Based Questions
+Scenario:
+You're building a billing system. Which data type will you choose for prices? Why?
+Answer:
+✔️ decimal – due to high precision required for financial calculations.
+
+How do you round off a decimal to 2 decimal places?
+decimal price = 123.45678m;
+price = Math.Round(price, 2); // 123.46
+
+
+Difference between decimal.ToString() and decimal.ToString("F2")?
+.ToString() outputs the full value.
+.ToString("F2") formats to 2 decimal places.
+
+Can decimal be nullable? How?
+Yes:
+decimal? discount = null;
+
+
+Does decimal handle division by zero?
+No. It throws DivideByZeroException.
+
+
+What happens if you multiply two large decimal values beyond range?
+Throws OverflowException if done inside a checked block.
+
+Is decimal a floating-point type?
+No. Though it handles fractional values, it uses a base-10 representation, unlike floating-point (which uses base-2).
+
+
+Which operations are costlier: decimal or double?
+Decimal operations, due to precision complexity.
+
+
+Is precision loss possible in decimals?
+Rare, but possible if precision exceeds 29 digits.
+
+

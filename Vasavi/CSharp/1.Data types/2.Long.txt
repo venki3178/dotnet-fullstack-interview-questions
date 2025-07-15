@@ -1,0 +1,142 @@
+What is long in C#?
+A 64-bit signed integer data type.
+
+What is the size of long in C#?
+8 bytes (64 bits).
+
+What is the range of long in C#?
+From -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+
+What is the default value of an uninitialized long?
+0.
+
+
+Is long a value type or reference type?
+Value type (because it's a primitive data type).
+
+What is the difference between long and Int64?
+No difference. long is just an alias for System.Int64.
+
+Can long be null?
+No, unless declared as long? (nullable long).
+
+
+What happens if a long variable overflows?
+It wraps around without throwing an error unless used in a checked block.
+
+How do you handle overflow with long?
+Use checked and unchecked keywords.
+
+Can you store decimal values in a long?
+No. It stores whole numbers only.
+
+Difference between long and ulong?
+long: Signed 64-bit integer.
+ulong: Unsigned 64-bit integer (range: 0 to 18,446,744,073,709,551,615).
+
+Can you convert long to string? How?
+Yes, using .ToString() method.
+
+How to parse a string to long?
+long value = long.Parse("123456789");
+
+
+How to safely parse a string to long?
+bool success = long.TryParse("123456789", out long result);
+
+
+Is using long always better than int?
+No. Use long only if needed, as it uses twice the memory.
+
+
+Can long be boxed/unboxed?
+Yes, like other value types.
+
+
+Does using long affect LINQ or Entity Framework performance?
+Slightly, when processing large datasets, but not significantly in general.
+
+
+
+1️⃣ Scenario:
+You’re storing population data for countries. Which data type would you choose? Why?
+A. int
+B. long
+C. decimal
+
+Answer:
+✔️ B. long – because population numbers can exceed the int range and decimal precision is unnecessary.
+
+2️⃣ Code Output:
+
+long x = 9_223_372_036_854_775_807;
+x = x + 1;
+Console.WriteLine(x);
+Q: What will be printed?
+
+A. Overflow Exception
+B. 9_223_372_036_854_775_808
+C. -9_223_372_036_854_775_808
+
+Answer:
+✔️ C. -9_223_372_036_854_775_808 (wraparound due to overflow, unless in checked block)
+
+3️⃣ Question:
+What is the alias of System.Int64?
+
+Answer:
+✔️ long
+
+4️⃣ Code Output:
+long? population = null;
+if (population == null)
+{
+    Console.WriteLine("Value not available.");
+}
+Q: Will this compile and print "Value not available"?
+
+Answer:
+✔️ Yes. Because long? is a nullable type.
+
+5️⃣ Fill-in-the-blank:
+long.Parse("9999") will throw an exception if the string is ______.
+Answer:
+✔️ Invalid or non-numeric (e.g., "abc").
+
+6️⃣ Practical Use Case:
+You need to store a timestamp in ticks. Which type would you choose?
+A. int
+B. long
+Answer:
+✔️ B. long (because ticks are large 64-bit values)
+
+7️⃣ Code Conversion:
+Convert the following string to long safely:
+
+Input: "1234567890"
+
+Answer:
+if (long.TryParse("1234567890", out long result))
+{
+    Console.WriteLine(result);
+}
+
+8️⃣ True/False:
+Using long improves performance compared to int because it's a bigger type.
+Answer:
+❌ False – long uses more memory and is slower than int in certain scenarios due to 64-bit size overhead.
+
+9️⃣ Scenario:
+Which type to choose for file sizes in bytes in large storage systems?
+Answer:
+✔️ long – as file sizes may exceed the 2 GB (int) limit.
+
+🔟 Overflow Handling:
+How would you prevent silent overflows when adding two long values?
+
+Answer:
+✔️ Use the checked block:
+checked
+{
+    long result = a + b;
+}

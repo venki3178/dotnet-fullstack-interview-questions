@@ -1,0 +1,38 @@
+What is the size of float, double, and decimal in C#?
+
+float: 4 bytes (32-bit)
+double: 8 bytes (64-bit)
+decimal: 16 bytes (128-bit)
+
+What is the precision difference between them?
+float: ~7 significant digits
+double: ~15–16 significant digits
+decimal: ~28–29 significant digits
+
+Which one uses base-10 representation?
+Only decimal uses base-10.
+float and double use binary (base-2) representation.
+
+What is the default floating-point type in C#?
+double
+
+What suffixes are used when declaring literals?
+float: f or F
+double: d or D (optional)
+decimal: m or M
+
+Why does 0.1 + 0.2 not equal 0.3 when using float or double?
+Because they use binary floating-point, where many decimal fractions (like 0.1) cannot be represented exactly.
+
+Which is faster: float, double, or decimal?
+float is fastest.
+
+If memory is critical and acceptable precision loss is allowed, which would you choose?
+float
+
+Can you compare two floating-point numbers directly? Why or why not?
+No. Due to rounding errors, comparisons should use an epsilon (tolerance) for approximate equality.
+
+Explain float.NaN and double.NaN.
+Special constant representing "Not a Number", typically the result of undefined operations.
+
