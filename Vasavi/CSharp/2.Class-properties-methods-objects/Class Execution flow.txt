@@ -1,0 +1,54 @@
+When Class will loads?
+
+Answer:
+When any static member (field, method, property) of the class is accessed for the first time: or
+When any non static member accessed first time.
+
+What will happens when class loads?
+
+1.CLR loads class metadata (type info)	Into Loader Heap
+class metadata like 
+Metadata Component	
+Class Name
+Namespace	
+Static Field Info	
+Instance Field Info	
+Static Constructor (.cctor)	
+Static Method signatures
+instant method signatures
+Access Modifiers	
+
+2.CLR: Allocates memory for all static fields in Loader heap/High-Frequency Heap even we accessed one static field, regardless of whether they’re explicitly initialized inside the static constructor or not.
+
+3.CLR: Executes the static constructor (only once per type), before the first access completes.
+
+4.CLR creates object/instance and allocate memory for object in managed heap.
+
+5.CLR allocates memory for object/instance fields.
+
+
+
+class A {
+
+static int a =10;
+}
+
+Class B{
+static int a = 20;
+}
+
+Console.WriteLine(B.a);
+Console.WriteLine(A.a);
+what it will print? If static variable is shared across resources does variable value will be replaced or override?
+
+
+✅ Output:
+
+20
+10
+
+✅ Why?
+Important Concepts:
+	Static variables are shared per class, not across classes.
+	Each class has its own separate static memory space.
+	A.a belongs to class A, and B.a belongs to class B. They do not interfere with each other.
