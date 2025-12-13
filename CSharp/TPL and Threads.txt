@@ -7,17 +7,27 @@ In a single-core processor, tasks are executed concurrently by switching between
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 Parallel Programming:
 
-In parallel programming, multiple tasks are split into smaller sub-tasks, which are executed at the same time on different CPU cores or machines,
-thus achieving speedup. The goal is to divide a task into smaller parts and run them concurrently across multiple processors.
+Parallel Programming means executing multiple threads simultaneously on multiple CPU cores to maximize CPU utilization.
+It is mainly used for CPU-bound operations.
 
+For example, when a program has a large computational task, it can be divided into smaller subtasks.
+Each subtask is then scheduled to run on a separate thread from the ThreadPool, and these threads can execute on different CPU cores in parallel.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 What is Async and Await?
 
 Async is keywords which is used to make a method as asynchronous method and performs an asynchronous operation.
-Await is keyword which is asynchronously waits for task to complete without blocking the main thread.
+Await is keyword What is the await keyword used for?
+
+Pauses method execution until the awaited Task completes, then resumes on a continuation; it does not block the calling thread.
+
+Can we use async without await?
+Yes—compiler allows it but the method runs synchronously until it returns a Task; async without await generates a warning and can be misleading.
 
 Task: 
 A Task represents an operation that runs asynchronously without blocking the main thread.
+
+What is Task<T>?
+A Task that produces a result of type T when the asynchronous operation completes.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 What is TPL(Task Parallel Library)?
@@ -36,4 +46,99 @@ process is an independent program that executed by the operating system
 What is the Thread?
 A Thread is the smallest unit of execution of Process.
 
+1. What is asynchronous programming?
+
+Executing operations without blocking the calling thread
+
+What problem does async/await solve in C#?
+
+It makes writing non-blocking code easy and readable
+
+3. What is the difference between synchronous and asynchronous execution?
+
+Synchronous blocks the caller until completion; asynchronous returns control immediately to main thread without non blocking main thread
+
+
+🧩 1️⃣ Purpose of Task.WhenAll
+
+Combines multiple tasks into a single composite task.
+Returns a Task that completes when all child tasks finish.
+It does not create threads or execute code itself — just coordinates completion.
+Simplifies waiting for multiple async operations at once.
+
+⚙️ 2️⃣ Execution Responsibility
+
+The individual tasks handle their own execution.
+Task.WhenAll only observes and aggregates their results or exceptions.
+It’s a task orchestrator, not a worker.
+
+💻 3️⃣ Task Types and Behavior
+🔹 CPU-bound Tasks
+Created with Task.Run or heavy computations.
+Run on ThreadPool threads.
+Can utilize multiple cores → true parallelism.
+
+Example: Task.Run(() => Compute()).
+
+🔹 I/O-bound Tasks
+Created via async APIs (HttpClient, file I/O, database calls).
+Use async I/O completion ports — no thread is blocked while waiting.
+Run concurrently in time, not in parallel on cores.
+
+Example: await HttpClient.GetAsync(url).
+
+🧠 4️⃣ ThreadPool and Core Utilization
+
+ThreadPool manages a pool of worker threads.
+Threads are distributed across available CPU cores.
+Uses work-stealing queues for load balancing.
+Dynamically scales using the hill-climbing algorithm.
+Ensures optimal CPU utilization without thread explosion.
+
+⚙️ 5️⃣ Parallelism vs Concurrency
+Type	Definition	Example
+Parallelism	Multiple tasks execute at the same time on different cores	Task.Run (CPU-bound)
+Concurrency	Multiple tasks overlap in time, not necessarily on different cores	async I/O (GetAsync)
+
+Task.WhenAll supports both — depending on what tasks you pass in.
+
+🔁 6️⃣ Task Continuations and Scheduling
+After a task completes, continuations (e.g. next await) are scheduled.
+These run via the TaskScheduler — usually the ThreadPool.
+In UI apps (like WPF/WinForms), a SynchronizationContext may restore execution to the UI thread.
+In ASP.NET Core, the SynchronizationContext is null, so continuations return to the ThreadPool.
+
+⚙️ 7️⃣ Internals of Task.WhenAll
+
+Creates a composite task that monitors all input tasks.
+Internally uses a counter to track remaining tasks.
+When all child tasks signal completion, the parent task completes.
+
+Exceptions are aggregated into a single AggregateException if any tasks fail.
+
+🔩 8️⃣ Core Usage Summary
+Task Type	Threads Used	Cores Used	Execution Model
+CPU-bound	✅ ThreadPool threads	✅ Yes (parallel)	True parallelism
+I/O-bound	❌ (non-blocking)	❌ No	Asynchronous concurrency
+Mixed	Both	Partially	Parallel + Concurrent mix
+🧾 9️⃣ Practical Summary
+
+Task.WhenAll is asynchronous, not multithreaded by itself.
+Multi-core usage depends entirely on how tasks are defined.
+CPU work → multiple cores; I/O → same thread, async overlapped.
+
+It’s ideal for running independent tasks simultaneously.
+
+✅ 10️⃣ Quick Recap
+
+Task.WhenAll aggregates multiple tasks.
+It doesn’t run threads — it just waits asynchronously.
+CPU-bound work → ThreadPool → multiple cores → parallel.
+I/O-bound work → async I/O → concurrency without threads.
+Uses TPL and ThreadPool for efficient scheduling.
+Continuations handled by TaskScheduler or SynchronizationContext.
+Scales automatically with system cores.
+Exceptions combined via AggregateException.
+Non-blocking and highly efficient.
+Designed for maximum concurrency with minimal resource overhead.
 
