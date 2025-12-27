@@ -1,0 +1,13 @@
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\bin\Debug\net8.0\eCommerce.Core.deps.json
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\bin\Debug\net8.0\eCommerce.Core.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\bin\Debug\net8.0\eCommerce.Core.pdb
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.csproj.AssemblyReference.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.AssemblyInfoInputs.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.AssemblyInfo.cs
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.csproj.CoreCompileInputs.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.sourcelink.json
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\refint\eCommerce.Core.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\eCommerce.Core.pdb
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Core\obj\Debug\net8.0\ref\eCommerce.Core.dll

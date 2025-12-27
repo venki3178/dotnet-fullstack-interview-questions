@@ -1,7 +1,60 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\userrepositorycontracts\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\userrepositorycontracts\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\dto\\authenticationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\dto\\authenticationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\servicecontracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\servicecontracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23317462-B8AC-4DC8-B03F-65EBF2B2F3B9}|eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.infrastrure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23317462-B8AC-4DC8-B03F-65EBF2B2F3B9}|eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj|solutionrelative:ecommerce.infrastrure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5225DD9-2F7E-40D8-B7E4-890A9DC3209F}|eCommerce.API\\eCommerce.API.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.api\\middlewares\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5225DD9-2F7E-40D8-B7E4-890A9DC3209F}|eCommerce.API\\eCommerce.API.csproj|solutionrelative:ecommerce.api\\middlewares\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23317462-B8AC-4DC8-B03F-65EBF2B2F3B9}|eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.infrastrure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23317462-B8AC-4DC8-B03F-65EBF2B2F3B9}|eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj|solutionrelative:ecommerce.infrastrure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5225DD9-2F7E-40D8-B7E4-890A9DC3209F}|eCommerce.API\\eCommerce.API.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5225DD9-2F7E-40D8-B7E4-890A9DC3209F}|eCommerce.API\\eCommerce.API.csproj|solutionrelative:ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\dto\\genderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\dto\\genderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\dto\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\dto\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|c:\\dotnet-fullstack-interview-questions\\microservices\\ecommerce.usersservice\\ecommerce.core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CD81723-089C-476C-92C8-73F5E13C19DC}|eCommerce.Core\\eCommerce.Core.csproj|solutionrelative:ecommerce.core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +62,173 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\Services\\UserService.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\Services\\UserService.cs",
+              "RelativeToolTip": "eCommerce.Core\\Services\\UserService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:37:22.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\UserRepositoryContracts\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\UserRepositoryContracts\\IUserRepository.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\UserRepositoryContracts\\IUserRepository.cs",
+              "RelativeToolTip": "eCommerce.Core\\UserRepositoryContracts\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:00:11.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "eCommerce.Infrastrure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "eCommerce.Infrastrure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:05:50.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\ServiceContracts\\IUserService.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\ServiceContracts\\IUserService.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\ServiceContracts\\IUserService.cs",
+              "RelativeToolTip": "eCommerce.Core\\ServiceContracts\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:37:08.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthenticationResponse.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\AuthenticationResponse.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\DTO\\AuthenticationResponse.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\AuthenticationResponse.cs",
+              "RelativeToolTip": "eCommerce.Core\\DTO\\AuthenticationResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:57:44.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "eCommerce.API\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "eCommerce.API\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T15:54:01.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "eCommerce.Infrastrure\\DependencyInjection.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\DependencyInjection.cs",
+              "RelativeToolTip": "eCommerce.Infrastrure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T15:28:16.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\Program.cs",
+              "RelativeDocumentMoniker": "eCommerce.API\\Program.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\Program.cs",
+              "RelativeToolTip": "eCommerce.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T15:34:32.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\DependencyInjection.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DependencyInjection.cs",
+              "RelativeToolTip": "eCommerce.Core\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T15:36:44.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GenderEnum.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\GenderEnum.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\DTO\\GenderEnum.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\GenderEnum.cs",
+              "RelativeToolTip": "eCommerce.Core\\DTO\\GenderEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:56:44.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\DTO\\RegisterRequest.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\RegisterRequest.cs",
+              "RelativeToolTip": "eCommerce.Core\\DTO\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:54:43.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\DTO\\LoginRequest.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\DTO\\LoginRequest.cs",
+              "RelativeToolTip": "eCommerce.Core\\DTO\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:52:45.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "eCommerce.Core\\Entities\\ApplicationUser.cs",
+              "ToolTip": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "eCommerce.Core\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:48:48.823Z"
             }
           ]
         }

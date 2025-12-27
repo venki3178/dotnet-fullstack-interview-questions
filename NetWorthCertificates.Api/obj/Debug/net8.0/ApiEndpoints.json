@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "DocxController",
+    "Method": "Generate",
+    "RelativePath": "api/docx/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "NetWorthCertificates.Api.Dtos.CertificateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

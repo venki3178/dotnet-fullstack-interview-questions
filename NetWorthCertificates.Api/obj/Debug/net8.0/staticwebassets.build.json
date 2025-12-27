@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "OTz1S//LBVXjn+WZExrGDDdJWPm7W3GiOLJGRsVL6js=",
+  "Source": "NetWorthCertificates.Api",
+  "BasePath": "_content/NetWorthCertificates.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

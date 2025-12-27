@@ -1,0 +1,43 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <h3>Certificate Details</h3>
+  <input formControlName="certificateName" placeholder="Certificate Name">
+
+  <select formControlName="salutation">
+    <option>Mr</option>
+    <option>Mrs</option>
+    <option>Ms</option>
+  </select>
+
+  <h3>Applicant</h3>
+  <input formControlName="applicantName" placeholder="Applicant Name">
+  <input formControlName="applicantFatherName" placeholder="Father Name">
+  <textarea formControlName="applicantAddress"></textarea>
+  <input formControlName="passortNumber" placeholder="Passport Number">
+
+  <h3>Currency</h3>
+  <input formControlName="currencySymbol">
+  <input formControlName="curAmount">
+
+  <h3>Savings</h3>
+  <input formControlName="applicantFatherSavingAccountBalance">
+  <input formControlName="goldJewelleryValue">
+
+  <h3>Income</h3>
+  <input formControlName="applicantFatherBusinessIncome">
+
+  <h3>Property</h3>
+  <input formControlName="propertyAddress">
+  <input formControlName="propertyValue">
+  <input formControlName="vehicle">
+  <input formControlName="vehicleValue">
+
+  <h3>CA Details</h3>
+  <input formControlName="caName">
+  <input formControlName="partnerNo">
+  <input formControlName="udin">
+  <input formControlName="place">
+  <input formControlName="date">
+
+  <button type="submit">Generate DOCX</button>
+</form>

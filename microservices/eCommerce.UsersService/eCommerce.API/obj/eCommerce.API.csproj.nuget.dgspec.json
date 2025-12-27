@@ -1,0 +1,235 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\eCommerce.API.csproj": {}
+  },
+  "projects": {
+    "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\eCommerce.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\eCommerce.API.csproj",
+        "projectName": "eCommerce.API",
+        "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\eCommerce.API.csproj",
+        "packagesPath": "C:\\Users\\venkatakrishna_marid\\.nuget\\packages\\",
+        "outputPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\venkatakrishna_marid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj": {
+                "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj"
+              },
+              "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj": {
+                "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj",
+        "projectName": "eCommerce.Core",
+        "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj",
+        "packagesPath": "C:\\Users\\venkatakrishna_marid\\.nuget\\packages\\",
+        "outputPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\venkatakrishna_marid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj",
+        "projectName": "eCommerce.Infrastrure",
+        "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\eCommerce.Infrastrure.csproj",
+        "packagesPath": "C:\\Users\\venkatakrishna_marid\\.nuget\\packages\\",
+        "outputPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Infrastrure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\venkatakrishna_marid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj": {
+                "projectPath": "C:\\dotnet-fullstack-interview-questions\\microservices\\eCommerce.UsersService\\eCommerce.Core\\eCommerce.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

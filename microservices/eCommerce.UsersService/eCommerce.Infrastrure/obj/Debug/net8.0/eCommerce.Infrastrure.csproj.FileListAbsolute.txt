@@ -1,0 +1,16 @@
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\bin\Debug\net8.0\eCommerce.Infrastrure.deps.json
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\bin\Debug\net8.0\eCommerce.Infrastrure.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\bin\Debug\net8.0\eCommerce.Infrastrure.pdb
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\bin\Debug\net8.0\eCommerce.Core.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\bin\Debug\net8.0\eCommerce.Core.pdb
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.csproj.AssemblyReference.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.AssemblyInfoInputs.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.AssemblyInfo.cs
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.csproj.CoreCompileInputs.cache
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.sourcelink.json
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerc.BFBFE042.Up2Date
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\refint\eCommerce.Infrastrure.dll
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\eCommerce.Infrastrure.pdb
+C:\dotnet-fullstack-interview-questions\microservices\eCommerce.UsersService\eCommerce.Infrastrure\obj\Debug\net8.0\ref\eCommerce.Infrastrure.dll

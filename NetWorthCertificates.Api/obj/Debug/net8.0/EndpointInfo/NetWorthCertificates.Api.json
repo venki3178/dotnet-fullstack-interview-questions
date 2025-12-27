@@ -1,0 +1,134 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NetWorthCertificates.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/docx/generate": {
+      "post": {
+        "tags": [
+          "Docx"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CertificateDto": {
+        "type": "object",
+        "properties": {
+          "certificateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "salutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantFatherName": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "passortNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "currencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantPropertyIncome": {
+            "type": "string",
+            "nullable": true
+          },
+          "curAmount": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantFatherSavingAccountBalance": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantFatherBusinessIncome": {
+            "type": "string",
+            "nullable": true
+          },
+          "goldJewelleryValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "vehicle": {
+            "type": "string",
+            "nullable": true
+          },
+          "vehicleValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "caName": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "udin": {
+            "type": "string",
+            "nullable": true
+          },
+          "place": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
