@@ -1,0 +1,496 @@
+
+Sales table
+
+Sales
+-----
+Id
+CustomerId
+ProductId
+Amount
+Quantity
+OrderDate
+City
+
+⭐ Top 20 LINQ vs SQL Queries (Sales + DateTime)
+1️⃣ Get all sales for today
+✔ LINQ
+var todaySales = context.Sales
+    .Where(s => s.OrderDate.Date == DateTime.Today)
+    .ToList();
+
+✔ SQL
+SELECT * FROM Sales
+WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE);
+
+2️⃣ Get sales for last 7 days
+✔ LINQ
+var last7Days = context.Sales
+    .Where(s => s.OrderDate >= DateTime.Today.AddDays(-7))
+    .ToList();
+
+✔ SQL
+SELECT * FROM Sales
+WHERE OrderDate >= DATEADD(DAY, -7, GETDATE());
+
+3️⃣ Total sales amount
+✔ LINQ
+var total = context.Sales.Sum(s => s.Amount);
+
+✔ SQL
+SELECT SUM(Amount) FROM Sales;
+
+4️⃣ Total sales by customer
+✔ LINQ
+var result = context.Sales
+    .GroupBy(s => s.CustomerId)
+    .Select(g => new {
+        Customer = g.Key,
+        Total = g.Sum(x => x.Amount)
+    }).ToList();
+
+✔ SQL
+SELECT CustomerId, SUM(Amount)
+FROM Sales
+GROUP BY CustomerId;
+
+5️⃣ Monthly sales
+✔ LINQ
+var monthly = context.Sales
+    .GroupBy(s => new { s.OrderDate.Year, s.OrderDate.Month })
+    .Select(g => new {
+        g.Key.Year,
+        g.Key.Month,
+        Total = g.Sum(x => x.Amount)
+    }).ToList();
+
+✔ SQL
+SELECT YEAR(OrderDate), MONTH(OrderDate), SUM(Amount)
+FROM Sales
+GROUP BY YEAR(OrderDate), MONTH(OrderDate);
+
+6️⃣ Sales in current month
+✔ LINQ
+var currentMonth = context.Sales
+    .Where(s => s.OrderDate.Month == DateTime.Now.Month &&
+                s.OrderDate.Year == DateTime.Now.Year)
+    .ToList();
+
+✔ SQL
+SELECT * FROM Sales
+WHERE MONTH(OrderDate) = MONTH(GETDATE())
+AND YEAR(OrderDate) = YEAR(GETDATE());
+
+7️⃣ Highest sale
+✔ LINQ
+var maxSale = context.Sales.Max(s => s.Amount);
+
+✔ SQL
+SELECT MAX(Amount) FROM Sales;
+
+8️⃣ Top 5 sales
+✔ LINQ
+var top5 = context.Sales
+    .OrderByDescending(s => s.Amount)
+    .Take(5)
+    .ToList();
+
+✔ SQL
+SELECT TOP 5 *
+FROM Sales
+ORDER BY Amount DESC;
+
+9️⃣ Sales between date range
+✔ LINQ
+var range = context.Sales
+    .Where(s => s.OrderDate >= startDate &&
+                s.OrderDate <= endDate)
+    .ToList();
+
+✔ SQL
+SELECT *
+FROM Sales
+WHERE OrderDate BETWEEN @startDate AND @endDate;
+
+🔟 Average sales per day
+✔ LINQ
+var avg = context.Sales
+    .GroupBy(s => s.OrderDate.Date)
+    .Select(g => new {
+        Date = g.Key,
+        Avg = g.Average(x => x.Amount)
+    }).ToList();
+
+✔ SQL
+SELECT CAST(OrderDate AS DATE), AVG(Amount)
+FROM Sales
+GROUP BY CAST(OrderDate AS DATE);
+
+1️⃣1️⃣ Count orders today
+✔ LINQ
+var count = context.Sales
+    .Count(s => s.OrderDate.Date == DateTime.Today);
+
+✔ SQL
+SELECT COUNT(*)
+FROM Sales
+WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE);
+
+1️⃣2️⃣ Latest sale per customer
+✔ LINQ
+var latest = context.Sales
+    .GroupBy(s => s.CustomerId)
+    .Select(g => g.OrderByDescending(x => x.OrderDate).First());
+
+✔ SQL
+SELECT *
+FROM Sales s
+WHERE OrderDate = (
+    SELECT MAX(OrderDate)
+    FROM Sales
+    WHERE CustomerId = s.CustomerId
+);
+
+1️⃣3️⃣ Sales by city
+✔ LINQ
+var city = context.Sales
+    .GroupBy(s => s.City)
+    .Select(g => new {
+        City = g.Key,
+        Total = g.Sum(x => x.Amount)
+    }).ToList();
+
+✔ SQL
+SELECT City, SUM(Amount)
+FROM Sales
+GROUP BY City;
+
+1️⃣4️⃣ Yearly sales
+✔ LINQ
+var yearly = context.Sales
+    .GroupBy(s => s.OrderDate.Year)
+    .Select(g => new {
+        Year = g.Key,
+        Total = g.Sum(x => x.Amount)
+    }).ToList();
+
+✔ SQL
+SELECT YEAR(OrderDate), SUM(Amount)
+FROM Sales
+GROUP BY YEAR(OrderDate);
+
+1️⃣5️⃣ Sales in last month
+✔ LINQ
+var lastMonth = context.Sales
+    .Where(s => s.OrderDate >= DateTime.Now.AddMonths(-1))
+    .ToList();
+
+✔ SQL
+SELECT *
+FROM Sales
+WHERE OrderDate >= DATEADD(MONTH, -1, GETDATE());
+
+1️⃣6️⃣ Customers with more than 5 orders
+✔ LINQ
+var customers = context.Sales
+    .GroupBy(s => s.CustomerId)
+    .Where(g => g.Count() > 5)
+    .Select(g => g.Key)
+    .ToList();
+
+✔ SQL
+SELECT CustomerId
+FROM Sales
+GROUP BY CustomerId
+HAVING COUNT(*) > 5;
+
+1️⃣7️⃣ Sales growth by month
+✔ LINQ
+var growth = context.Sales
+    .GroupBy(s => new { s.OrderDate.Year, s.OrderDate.Month })
+    .OrderBy(g => g.Key.Year)
+    .ThenBy(g => g.Key.Month)
+    .Select(g => new {
+        g.Key.Year,
+        g.Key.Month,
+        Total = g.Sum(x => x.Amount)
+    });
+
+✔ SQL
+SELECT YEAR(OrderDate), MONTH(OrderDate), SUM(Amount)
+FROM Sales
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+ORDER BY YEAR(OrderDate), MONTH(OrderDate);
+
+1️⃣8️⃣ Sales for weekend only
+✔ LINQ
+var weekend = context.Sales
+    .Where(s => s.OrderDate.DayOfWeek == DayOfWeek.Saturday ||
+                s.OrderDate.DayOfWeek == DayOfWeek.Sunday)
+    .ToList();
+
+✔ SQL
+SELECT *
+FROM Sales
+WHERE DATENAME(WEEKDAY, OrderDate) IN ('Saturday', 'Sunday');
+
+1️⃣9️⃣ Running total
+✔ SQL
+SELECT OrderDate,
+SUM(Amount) OVER (ORDER BY OrderDate) AS RunningTotal
+FROM Sales;
+
+✔ LINQ (Basic)
+var running = context.Sales
+    .OrderBy(s => s.OrderDate)
+    .ToList()
+    .Select((x, i) => new {
+        x.OrderDate,
+        Total = context.Sales
+            .Where(s => s.OrderDate <= x.OrderDate)
+            .Sum(s => s.Amount)
+    });
+
+2️⃣0️⃣ Top selling day
+✔ LINQ
+var topDay = context.Sales
+    .GroupBy(s => s.OrderDate.Date)
+    .OrderByDescending(g => g.Sum(x => x.Amount))
+    .FirstOrDefault();
+
+✔ SQL
+SELECT TOP 1 CAST(OrderDate AS DATE), SUM(Amount)
+FROM Sales
+GROUP BY CAST(OrderDate AS DATE)
+ORDER BY SUM(Amount) DESC;
+
+⭐ Interview Tips
+
+✔ Learn GroupBy + Aggregate + DateTime – very important
+✔ Be strong in joins + subqueries + window functions
+✔ Practice converting LINQ → SQL and SQL → LINQ
+✔ Focus on real business scenarios like:
+
+Sales reports
+
+Monthly dashboards
+
+Customer insights
+
+Growth tracking
+
+If you want, I can also give:
+
+✅ Top 20 Join LINQ queries
+
+✅ Top Entity Framework interview questions
+
+✅ Real-time sales dashboard LINQ examples
+
+✅ Stored procedure vs LINQ interview questions
+
+✅ Most asked LINQ tricky interview questions
+
+Just tell me 👍
+
+write some above 20 queries with some sample data
+
+Great 👍. Below are 20 LINQ + SQL queries with sample Sales data so you can practice for interviews and real projects.
+
+⭐ Sample Sales Table + Data
+✅ SQL Table
+CREATE TABLE Sales (
+    Id INT,
+    CustomerId INT,
+    ProductId INT,
+    Amount DECIMAL(10,2),
+    Quantity INT,
+    OrderDate DATETIME,
+    City VARCHAR(50)
+);
+
+✅ Sample Data
+INSERT INTO Sales VALUES
+(1,101,1,500,2,'2025-12-01','Hyderabad'),
+(2,102,2,800,1,'2025-12-02','Bangalore'),
+(3,101,3,1200,3,'2025-12-03','Hyderabad'),
+(4,103,1,400,1,'2025-12-04','Chennai'),
+(5,102,2,1500,4,'2025-12-05','Bangalore'),
+(6,104,4,900,2,'2025-12-06','Pune'),
+(7,101,3,700,2,'2025-12-07','Hyderabad'),
+(8,105,5,2000,5,'2025-12-08','Mumbai'),
+(9,103,1,600,2,'2025-12-09','Chennai'),
+(10,101,2,1100,3,'2025-12-10','Hyderabad');
+
+⭐ Equivalent LINQ Sample Class
+public class Sale
+{
+    public int Id { get; set; }
+    public int CustomerId { get; set; }
+    public int ProductId { get; set; }
+    public decimal Amount { get; set; }
+    public int Quantity { get; set; }
+    public DateTime OrderDate { get; set; }
+    public string City { get; set; }
+}
+
+
+Assume:
+
+List<Sale> sales = GetSales();
+
+⭐ Top 20 LINQ + SQL Queries with Sample Data
+1️⃣ Get all Hyderabad sales
+✔ LINQ
+var result = sales.Where(x => x.City == "Hyderabad").ToList();
+
+✔ SQL
+SELECT * FROM Sales WHERE City = 'Hyderabad';
+
+2️⃣ Total sales amount
+var total = sales.Sum(x => x.Amount);
+
+SELECT SUM(Amount) FROM Sales;
+
+3️⃣ Highest sale
+var max = sales.Max(x => x.Amount);
+
+SELECT MAX(Amount) FROM Sales;
+
+4️⃣ Top 3 sales
+var top3 = sales.OrderByDescending(x => x.Amount).Take(3);
+
+SELECT TOP 3 * FROM Sales ORDER BY Amount DESC;
+
+5️⃣ Sales in December
+var december = sales.Where(x => x.OrderDate.Month == 12);
+
+SELECT * FROM Sales WHERE MONTH(OrderDate) = 12;
+
+6️⃣ Sales by customer
+var group = sales.GroupBy(x => x.CustomerId)
+.Select(g => new {
+    Customer = g.Key,
+    Total = g.Sum(x => x.Amount)
+});
+
+SELECT CustomerId, SUM(Amount)
+FROM Sales
+GROUP BY CustomerId;
+
+7️⃣ Monthly sales
+var monthly = sales.GroupBy(x => new { x.OrderDate.Year, x.OrderDate.Month })
+.Select(g => new {
+    g.Key.Year,
+    g.Key.Month,
+    Total = g.Sum(x => x.Amount)
+});
+
+SELECT YEAR(OrderDate), MONTH(OrderDate), SUM(Amount)
+FROM Sales
+GROUP BY YEAR(OrderDate), MONTH(OrderDate);
+
+8️⃣ Count total orders
+var count = sales.Count();
+
+SELECT COUNT(*) FROM Sales;
+
+9️⃣ Customers with more than 2 orders
+var customers = sales.GroupBy(x => x.CustomerId)
+.Where(g => g.Count() > 2)
+.Select(g => g.Key);
+
+SELECT CustomerId
+FROM Sales
+GROUP BY CustomerId
+HAVING COUNT(*) > 2;
+
+🔟 Sales between dates
+DateTime start = new DateTime(2025, 12, 1);
+DateTime end = new DateTime(2025, 12, 5);
+
+var range = sales.Where(x => x.OrderDate >= start && x.OrderDate <= end);
+
+SELECT * FROM Sales
+WHERE OrderDate BETWEEN '2025-12-01' AND '2025-12-05';
+
+1️⃣1️⃣ Average sales
+var avg = sales.Average(x => x.Amount);
+
+SELECT AVG(Amount) FROM Sales;
+
+1️⃣2️⃣ Sales by city
+var city = sales.GroupBy(x => x.City)
+.Select(g => new {
+    City = g.Key,
+    Total = g.Sum(x => x.Amount)
+});
+
+SELECT City, SUM(Amount)
+FROM Sales
+GROUP BY City;
+
+1️⃣3️⃣ Latest order per customer
+var latest = sales.GroupBy(x => x.CustomerId)
+.Select(g => g.OrderByDescending(x => x.OrderDate).First());
+
+SELECT *
+FROM Sales s
+WHERE OrderDate = (
+    SELECT MAX(OrderDate)
+    FROM Sales
+    WHERE CustomerId = s.CustomerId
+);
+
+1️⃣4️⃣ Total quantity sold
+var qty = sales.Sum(x => x.Quantity);
+
+SELECT SUM(Quantity) FROM Sales;
+
+1️⃣5️⃣ Top selling city
+var topCity = sales.GroupBy(x => x.City)
+.OrderByDescending(g => g.Sum(x => x.Amount))
+.First();
+
+SELECT TOP 1 City, SUM(Amount)
+FROM Sales
+GROUP BY City
+ORDER BY SUM(Amount) DESC;
+
+1️⃣6️⃣ Running total
+var running = sales.OrderBy(x => x.OrderDate)
+.Select((x, i) => new {
+    x.OrderDate,
+    Total = sales.Where(s => s.OrderDate <= x.OrderDate).Sum(s => s.Amount)
+});
+
+SELECT OrderDate,
+SUM(Amount) OVER (ORDER BY OrderDate) RunningTotal
+FROM Sales;
+
+1️⃣7️⃣ Weekend sales
+var weekend = sales.Where(x =>
+    x.OrderDate.DayOfWeek == DayOfWeek.Saturday ||
+    x.OrderDate.DayOfWeek == DayOfWeek.Sunday);
+
+SELECT *
+FROM Sales
+WHERE DATENAME(WEEKDAY, OrderDate) IN ('Saturday','Sunday');
+
+1️⃣8️⃣ Sales growth (month)
+var growth = sales.GroupBy(x => x.OrderDate.Month)
+.OrderBy(x => x.Key);
+
+SELECT MONTH(OrderDate), SUM(Amount)
+FROM Sales
+GROUP BY MONTH(OrderDate)
+ORDER BY MONTH(OrderDate);
+
+1️⃣9️⃣ Lowest sale
+var min = sales.Min(x => x.Amount);
+
+SELECT MIN(Amount) FROM Sales;
+
+2️⃣0️⃣ Total unique customers
+var unique = sales.Select(x => x.CustomerId).Distinct().Count();
+
+SELECT COUNT(DISTINCT CustomerId) FROM Sales;
