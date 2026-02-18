@@ -1,0 +1,213 @@
+Strictly speaking, no one can list all companies, but many software companies explicitly hire engineers for fundamentals, problem-solving, and adaptability — not a specific programming language or tech stack.
+
+Below is a well-recognized, industry-accepted list of such companies, grouped by category. These companies routinely say “language is not a barrier” during hiring.
+
+🏆 Tier-1 Global Product Companies (Language-Agnostic Hiring)
+
+These companies train or allow language choice in interviews.
+
+Google
+
+Meta (Facebook)
+
+Amazon
+
+Microsoft
+
+Apple
+
+Netflix
+
+Uber
+
+Airbnb
+
+LinkedIn
+
+Twitter (X)
+
+Salesforce
+
+Adobe
+
+Spotify
+
+Atlassian
+
+Dropbox
+
+Stripe
+
+👉 Interviews focus on DSA, system design, problem-solving
+
+🌍 Global SaaS & Engineering-Driven Companies
+
+VMware
+
+Intuit
+
+ServiceNow
+
+Workday
+
+Snowflake
+
+Databricks
+
+Shopify
+
+Zoom
+
+HubSpot
+
+Okta
+
+Zendesk
+
+Elastic
+
+MongoDB
+
+Confluent
+
+Twilio
+
+💳 FinTech & Payments (Very Stack-Flexible)
+
+These companies value domain understanding + logic.
+
+Visa
+
+Mastercard
+
+PayPal
+
+Stripe
+
+Square (Block)
+
+Razorpay
+
+PhonePe
+
+Google Pay
+
+Paytm
+
+Cashfree
+
+CRED
+
+Klarna
+
+Adyen
+
+💡 Your payment gateway + insurance background fits extremely well here
+
+🏦 BFSI, Insurance & Enterprise Tech (Language-Independent)
+
+JPMorgan Chase
+
+Goldman Sachs
+
+Morgan Stanley
+
+Citi
+
+American Express
+
+Capital One
+
+BlackRock
+
+AXA
+
+AIG
+
+Allianz
+
+Swiss Re
+
+Munich Re
+
+Guidewire
+
+Duck Creek
+
+🧠 AI, Cloud & Platform Companies
+
+OpenAI
+
+NVIDIA
+
+Intel
+
+AMD
+
+Palantir
+
+Cloudflare
+
+Fastly
+
+Red Hat
+
+HashiCorp
+
+Canonical (Ubuntu)
+
+Hugging Face
+
+🏢 Consulting & Tech Services (Strongly Language-Neutral)
+
+They expect concepts + adaptability, not a fixed stack.
+
+Accenture
+
+Deloitte
+
+PwC
+
+EY
+
+KPMG
+
+Capgemini
+
+Cognizant
+
+Infosys
+
+TCS
+
+Wipro
+
+HCL
+
+LTIMindtree
+
+🚀 Product Startups & Scale-ups (Stack Can Change Anytime)
+
+Flipkart
+
+Meesho
+
+Swiggy
+
+Zomato
+
+Ola
+
+Myntra
+
+Udaan
+
+Freshworks
+
+Zoho
+
+Postman
+
+BrowserStack
+
+Startups expect you to learn fast, not already know their stack.
