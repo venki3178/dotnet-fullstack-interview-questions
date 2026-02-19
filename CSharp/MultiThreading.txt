@@ -1,3 +1,4 @@
+
 Multitasking: is a concept to running multiple processes/tasks parallelly.
 Multithreading: is a concept of running multiple threads within single process parallelly.
 
