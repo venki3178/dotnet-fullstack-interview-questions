@@ -1,0 +1,89 @@
+🔷 🔑 End-to-End Flow Summary
+1. Compilation
+Source code → compiled into IL (Intermediate Language)
+Stored in DLL (.dll)
+DLL contains:
+✔ IL code
+✔ Metadata (types, methods)
+✔ Manifest
+2. Process Memory (Runtime)
+
+When app runs, OS creates process memory (virtual memory) backed by RAM.
+
+Memory layout:
+Process Memory
+│
+├── Stack → Method calls, local variables
+├── Managed Heap → Objects, static fields
+├── Loader Heap → Loaded DLL (IL + metadata)
+└── JIT Code Heap → Native compiled code
+3. Assembly Loading
+CLR loads DLL into Loader Heap
+Only IL + metadata loaded, not native code
+4. Class (Type) Loading
+Happens when type is first referenced
+CLR:
+✔ Loads metadata
+✔ Prepares type
+✔ Initializes static fields (default values)
+
+❗ No user code runs yet
+
+5. Type Initialization (Static Behavior)
+Static Fields
+Stored in Managed Heap
+Initialized:
+At or before first use (if no static constructor → BeforeFieldInit)
+Exactly at first use (if static constructor exists)
+Static Constructor (.cctor)
+Stored as IL in DLL
+JIT compiled when triggered
+Runs:
+✔ Only once
+✔ Before first active use
+✔ Thread-safe
+6. Method Execution & JIT
+Methods are NOT compiled at class load
+JIT compiles on first method call
+Flow:
+Method called → JIT compiles → Native code stored → Reused
+Native code stored in JIT Code Heap
+7. Memory Responsibilities
+Component	Stores
+Stack	Method calls, local variables
+Managed Heap	Objects, static variables
+Loader Heap	DLL (IL + metadata)
+JIT Code Heap	Native compiled methods
+8. Execution Order
+DLL loaded
+   ↓
+Class accessed → Type loaded
+   ↓
+Static constructor runs (once, if needed)
+   ↓
+Object created → Instance constructor
+   ↓
+Method called → JIT compilation
+9. Key Performance Insights
+
+✔ JIT is lazy (method-by-method)
+✔ Static initialization can delay startup
+✔ BeforeFieldInit allows early optimization
+✔ Heavy static logic = startup bottleneck
+
+🔷 🧠 Final Interview Answer (Best Version)
+
+In ASP.NET Core, code is compiled into IL and stored in DLLs. At runtime, the CLR loads the assembly into the loader heap within process memory. When a class is first accessed, its metadata is loaded and static fields are initialized. If a static constructor exists, it is JIT compiled and executed once before first use. Methods are JIT compiled on demand and stored in the JIT code heap. Objects and static data reside in the managed heap, while method execution uses the stack. This lazy loading and JIT compilation improve performance and optimize memory usage.
+
+🔑 One-Line Memory Trick
+
+👉 DLL = IL
+👉 Loader Heap = Loaded code
+👉 JIT Heap = Executable code
+👉 Heap = Data
+👉 Stack = Execution
+
+If you want, I can next provide:
+✅ Diagram with real .NET internals labels (GC Heap, LOH, SOH)
+✅ Tricky interview MCQs based on this topic
+✅ Real production debugging scenarios (startup slowness, memory issues)

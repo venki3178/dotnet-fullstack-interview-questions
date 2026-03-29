@@ -1,0 +1,50 @@
+dotnet project set in Visual studio care
+
+create on folder with meaningful name
+
+open cmd from that folder run below commands
+
+TO create solution file
+dotnet new sln -n MyEnterpriseApp
+
+Create ASP.NET Core Web API Project
+dotnet new webapi -n MyEnterpriseApp.Api
+
+Add Project to Solution
+dotnet sln MyEnterpriseApp.sln add MyEnterpriseApp.Api/MyEnterpriseApp.Api.csproj
+
+Now go to web api project folder and run command ".code" to open vs code
+cd MyEnterpriseApp.Api
+
+now run below commands
+
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
+
+Install EF Core CLI Tool (if not installed) with below command
+dotnet tool install --global dotnet-ef
+
+to check whether it is installed or not with below command
+dotnet ef
+
+Create Migration
+dotnet ef migrations add InitialCreate
+
+Create SQL Server Database
+dotnet ef database update
+
+run the application
+dotnet run
+
+
+Add controller AddControllers service and MapControllers middleware if not configured
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+
+app.UseHttpsRedirection();
+app.MapControllers();
+
+

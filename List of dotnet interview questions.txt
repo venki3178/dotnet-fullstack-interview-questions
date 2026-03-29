@@ -1,0 +1,108 @@
+List of dotnet interview questions
+
+Datatypes
+	1.Primitive Data types vs Value types
+	2.Value type vs reference type
+	3.stack vs heap
+	4.string vs string builder
+	5.array vs arraylist
+	6.Boxing vs unboxing
+	7.Explicit vs Implicit conversion
+	8.var vs dynamic
+	9.const vs readonly
+	10..what are the default values of primitive data types
+	11.how to make primitive data types to nullable
+	12.how to split string into array
+	13.how to convert array to string
+	14.how to trim empty space from string end and start and both sides
+	15.how to check null or empty of strings
+	16.primitve data types vs aliases
+	17.sizes of primitive datatypes
+	18.how to check size of primitive data types in c#
+	19.  == vs .Equals()
+	20.how to handle over flow for primitive types.
+	
+
+-------------------------------------------
+
+Generic Data types
+	1.what is Generic datatypes
+		Ans: Collections that store type-safe data using generics (<T>), avoiding boxing/unboxing.
+	2.List Vs ArrayList
+	3.Difference between Dictionary<TKey,TValue> and Hashtable?
+	4.What is HashSet<T>? When to use it?
+	5.Difference between IEnumerable<T> and IQueryable<T>?
+	6.What is deferred execution in collections?
+
+---------------------------------------------------
+
+OOPS
+
+1. what is OOP concept? (OR) What are the 4 pillars of OOP in C#?
+
+	OOP(Object oriented Programming) is a concept
+	Encapsulation, Inheritance, Polymorphism, Abstraction
+	Encapsulation → Hiding data via properties
+	Inheritance → Code reuse
+	Polymorphism → Multiple behaviors
+	Abstraction → Hiding implementation details
+
+2.What is method overloading vs method overriding?
+3.What is polymorphism in C#?
+4.What is a virtual method?
+5.Is it mandatory to override virtual method in derived/child classes which inherits base class?
+6.Difference between virtual, override, and new?
+	Keyword			Purpose
+
+	virtual			Allows override
+	override		Overrides base method
+	new			Hides base method
+
+7.What is an abstract class?
+8.Interface vs abstract class?
+9.What is multiple inheritance? Does C# support it?
+10.What is dependency inversion principle (DIP)?
+11.What is encapsulation in real-world scenario?
+	private int balance;
+
+	public void Deposit(int amount)
+	{
+    		if(amount > 0) balance += amount;
+	}
+12.What is sealed class?
+13.What is static class in OOP?
+14.What is late binding vs early binding? (OR) what is compiletime polymorphism vs runtime polymorphism?
+15.can we create constructor in abstract class? 
+16.Can we create static constructor in abstract calss?
+17.can we create parametric static constructor in abstract class?
+18.how to call constructor of abstract class in derived class?
+19.what is constructor chaining and how to implement?
+20.Interface vs abstract class.
+21.can we create constructor in interface?
+22.can we define access modifiers in interface?
+23.Can we define abstract keyword for interface?
+24. abstract vs virtual
+25.can we make method as private in interface?
+26. how many ways we can prevent object creation?
+27.What is a constructor in C#?
+28. Types of constructors in C# and explain it?
+29.Difference between static constructor and instance constructor?
+30.Can constructor be inherited?
+31.What happens if you don’t define a constructor?
+	ANS:Compiler provides a default constructor
+32.Can constructor be overloaded?
+33.difference between static and singleton
+34.What is the static keyword in C#?
+35.When is static constructor executed?
+36.Can we access non-static members inside static method?
+37.Can static methods be overridden?
+38.Can static class be instantiated?
+39.What is static variable lifetime?
+40.Can we define non static methods/properties in static class?
+41.how to access static members?
+42.Can we define static members in non static class.
+43.where static members stored and when static members invoke?
+
+
+
+

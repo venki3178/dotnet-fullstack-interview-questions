@@ -17,7 +17,7 @@ Supports WebSockets, SignalR, and gRPC.
 ✅ Answer:
 Middleware is a component that processes HTTP requests and responses in ASP.NET Core. Middleware can:
 
-Inspect or modify incoming requests.
+Modify incoming requests.
 Pass the request to the next middleware in the pipeline.
 Modify outgoing responses.
 ----------------------------------------------------------------------------
@@ -44,9 +44,9 @@ Kestrel is the built-in, cross-platform web server in ASP.NET Core. It is lightw
 -----------------------------------------------------------------------
 What is the difference between AddSingleton(), AddScoped(), and AddTransient()?
 
-Singleton	One instance for the entire application
-Scoped		One instance per request
-Transient	New instance every time requested
+Singleton	One instance creates for the entire application
+Scoped		One instance  creates per request
+Transient	New instance creates for every time requested
 
 --------------------------------------------------------------------------
 0. How to implement Global Exception Handling in ASP.NET Core?
@@ -75,8 +75,13 @@ public class ExceptionMiddleware
 ✅ app.UseCors(options => options.AllowAnyOrigin());
 
 ---------------------------------------------------------------------
+What is Minimal api?
+ Minimal api is a middleware component that provides a simple way to map HTTP routes without requiring controllers or attributes.
+
+------------------------------------------------------------------------------
 app.Map in ASP.NET Core
-In ASP.NET Core, app.Map() is used to define endpoints in Minimal API. It provides a simple way to map HTTP routes without requiring controllers or attributes.
+
+In ASP.NET Core, app.Map() is used to define endpoints in Minimal API.
 
 Method	Description
 app.MapGet()	Maps an HTTP GET request
@@ -197,6 +202,12 @@ You can generate a JWT token using JwtSecurityTokenHandler in a controller:
 
 --------------------------------------------------------------------------------------------------------
 
+How to validate incoming token from FE in .net core
+
+using JwtSecurityTokenHandler.ValidateToken() method.
+
+-----------------------------------------------------
+
  How do you secure an API endpoint with JWT authentication in .NET Core?
 Answer:
 Use the [Authorize] attribute in your controllers:
@@ -292,3 +303,87 @@ Answer:
 Block Blob – Stores large binary files (e.g., images, videos).
 Append Blob – Optimized for log data, where new data is appended.
 Page Blob – Stores random-access data (e.g., virtual disks for VMs).
+
+
+
+
+
+
+
+
+
+
+interface IEmployeeService
+{
+	void PrintEmployee();
+}
+
+public class EmployeeDetailsService: IEmployeeService
+{
+	public EmployeeService()
+	{
+	}
+
+	public void PrintEmployee()
+	{}
+	
+}
+
+
+
+public class EmployeeController{
+	public readonly IEmployeeService _employeeService
+	public EmployeeController(IEmployeeService employeeService){
+		
+		employeeService=employeeService;
+	}
+
+	public IActionResult<IEnumerable<Employee>> GetAllEmplpyees(){
+		
+	}
+
+}
+
+
+
+AccountSerice
+UserService
+BankService
+AtmService
+
+
+program. cs
+
+builder.Services.AddSingleton<IEmployeeService,EmployeeDetailsService>();
+builder.Services.AddScoped<IEmployeeService,EmployeeDetailsService>();
+
+builder.Services.AddTransient<IEmployeeService,EmployeeDetailsService>();
+
+
+
+
+Program.cs
+
+app.UseExceptionMiddleware();
+
+public static class MiddilewareExtensions{
+	public static IWebApplication UseExceptionMiddleware(this IApplciation app){
+		return app.UserMidddleware<ExceptionMiddleware>();
+	}	
+}
+
+public class ExceptionMiddleware
+{
+    private readonly RequestDelegate _next;
+    public ExceptionMiddleware(RequestDelegate next) { _next = next; }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try { await _next(context); }
+        catch (Exception ex)
+        {
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsync($"Error: {ex.Message}");
+        }
+    }
+}
