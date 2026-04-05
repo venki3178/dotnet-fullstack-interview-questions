@@ -1,0 +1,30 @@
+🔹 1. What is Claude Code?
+
+Claude Code (from Anthropic’s Claude models) is designed specifically for developers working inside their codebase.
+
+✅ Key Characteristics:
+Runs inside your local project (CLI tool)
+Can read, edit, and manage files directly
+Supports automation of repeated work flows using scripts & hooks
+Works well with tools like:
+Git
+CI/CD pipelines
+Dev environments
+💡 Example:
+
+You can say:
+
+“Remove unused namespaces from all .cs files”
+
+👉 Claude Code will:
+
+Scan your project
+Modify files
+Apply changes automatically
+
+---------------------------------------------------------------------
+Limitations of Claude Code?
+
+Claude code may generate incorrect or inefficient logic 
+Needs human review
+
