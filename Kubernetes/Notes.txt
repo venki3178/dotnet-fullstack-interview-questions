@@ -1,0 +1,80 @@
+1. Centralized Management :
+
+Kubernetes helps you control and manage all your container servers (Docker hosts) from a single place.
+You don't need to log in to each Docker server one by one; everything can be managed from the Kubernetes dashboard or command.
+This saves time and makes life easier for system admins.
+
+2. Failover :
+Kubernetes can create a group of Docker servers (a cluster) and manage them together.
+If one server fails, Kubernetes can automatically move (migrate) your container apps to another working server in the cluster.
+This keeps your apps running without interruption.
+Kubernetes (K8s) provides failover, which means your applications can keep running even if one of your servers stops working.
+
+3. Reliability :
+Kubernetes makes sure your applications are always running and healthy.
+If something crashes, Kubernetes can restart it automatically.
+
+4. Scalability :
+Easily increase or decrease the number of containers running your app based on demand.
+For example, if you get more users, Kubernetes can launch more containers to handle the load.
+Vertical Scaling & Horizontal Scaling
+
+5. Rolling Out and Rolling Back :
+Update your applications safely, one step at a time (rolling updates), without any downtime.
+If something goes wrong, you can quickly go back (rollback) to the previous working version.
+
+Ramped
+Recreate
+Canary
+Blue-Green
+
+6. Resource Scheduling :
+Kubernetes automatically decides which server (node) should run each container, making the best use of your hardware.
+This keeps everything efficient and avoids overloading any single server.
+Kubernetes Architecture:
+
+Kubernetes architecture is like a team where everyone has a specific job to keep your applications running smoothly. It is mainly divided into two parts:
+
+1. Master Nodes (Control Plane):
+This is the “brain” of Kubernetes.
+It makes all the decisions—what to run, where to run it, and how to fix problems.
+2. Worker Nodes (Data Plane or Docker hosts):
+These are the “workers” that actually run your application containers as per the master node’s instructions.
+
+Together, these parts help in automatically starting, stopping, and managing your applications across many computers, making sure everything runs smoothly and without interruption.
+
+Master Node (Control Plane):
+Master has 4 major components. They are:
+
+Kube-APIServer
+Kube-ETCD
+Kube-Scheduler
+Kube-Controller
+
+Still we have some more components but major components are these 4.
+
+Worker Nodes (Docker host's):
+Cri-O/Conatiner.d
+Kubelet
+kubeproxy
+Master Node (Control Plane):
+1. Kube-APIServer:
+
+Kube-APIServer is like the main gatekeeper or front desk of Kubernetes.
+
+It is the main entry point for all commands and requests (from users, tools, or other parts of Kubernetes).
+Whenever you use kubectl or the dashboard, your request first comes to the API Server.
+It checks, processes, and passes your requests to the right component in the cluster.
+
+Kube-APIServer is the “communication center” of Kubernetes. Everything goes through it!
+
+2. Kube-ETCD:
+
+Kube-ETCD is like the database or storage locker of Kubernetes.
+
+It stores all the important information about your cluster, like what apps are running, their settings, and the current state of everything.
+If Kubernetes needs to know the current status or recover after a problem, it checks ETCD.
+
+If you want, I can also:
+✅ Convert this into short interview notes
+✅ Or create a diagram + real-time example (very useful for interviews)
