@@ -1,3 +1,197 @@
 what is Azure Key Vault?
 
 Azure Key Vault is a cloud service for securing, storing, and managing secrets, encryption keys, and certificates in Azure.
+
+
+Configure Keyvault in Dotnet core:
+
+1.Using Configuration Provider
+
+	Use AddAzureKeyVault (Configuration Provider) when:
+	You want all secrets auto-loaded into IConfiguration	
+	Works like appsettings.json
+	uses for Simple apps
+
+dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
+dotnet add package Azure.Identity
+		-----------------------------------------
+
+using Azure.Identity;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add Key Vault
+var keyVaultUrl = new Uri("https://myapp-kv.vault.azure.net/");
+
+builder.Configuration.AddAzureKeyVault(
+    keyVaultUrl,
+    new DefaultAzureCredential()
+);
+		-----------------------------------------
+
+How DefaultAzureCredential Works
+
+	It automatically tries:
+	Environment variables
+	Managed Identity (App Service)
+	Visual Studio login (local
+		--------------------------------------------
+Access Secrets in Code
+Example: appsettings-style access
+
+var connectionString = builder.Configuration["DbConnectionString"];
+
+		--------------------------------------------
+Inject into Service
+
+public class MyService
+{
+    private readonly IConfiguration _config;
+
+    public MyService(IConfiguration config)
+    {
+        _config = config;
+    }
+
+    public string GetConnection()
+    {
+        return _config["DbConnectionString"];
+    }
+}
+		----------------------------
+⚡ Bonus: Using Strongly Typed Options
+
+builder.Services.Configure<MySettings>(
+    builder.Configuration.GetSection("MySettings"));
+
+
+public class MySettings
+{
+    public string ApiUrl { get; set; }          // appsettings
+    public string Timeout { get; set; }         // appsettings
+
+    public string DbPassword { get; set; }      // Key Vault
+    public string ApiKey { get; set; }          // Key Vault
+
+    public string FeatureFlag { get; set; }     // appsettings
+}
+
+
+
+🔹 appsettings.json
+{
+  "MySettings": {
+    "ApiUrl": "https://api.example.com",
+    "Timeout": "30",
+    "FeatureFlag": "true"
+  }
+}
+
+REMAINING WILL COME FROM KEYVAULT
+
+finally merged object will be 
+
+
+{
+  "MySettings": {
+    "ApiUrl": "https://api.example.com",
+    "Timeout": "30",
+    "FeatureFlag": "true",
+    "DbPassword": "****** (from Key Vault)",
+    "ApiKey": "****** (from Key Vault)"
+  }
+}
+
+-------------------------------------------------------------------------------
+
+2.using SecretClient Object
+
+	Use SecretClient when:
+	You need dynamic access
+	Fetch secrets on demand
+	Handle rotation / versioning
+	Use secrets in background services / microservices
+	Need better control + logging + error handling
+
+dotnet add package Azure.Security.KeyVault.Secrets
+dotnet add package Azure.Identity
+
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+public interface IKeyVaultService
+{
+    Task<string> GetSecretAsync(string secretName);
+}
+
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+public class KeyVaultService : IKeyVaultService
+{
+    private readonly SecretClient _client;
+
+    public KeyVaultService()
+    {
+        _client = new SecretClient(
+            new Uri("https://myapp-kv.vault.azure.net/"),
+            new DefaultAzureCredential());
+    }
+
+    public async Task<string> GetSecretAsync(string secretName)
+    {
+        var secret = await _client.GetSecretAsync(secretName);
+        return secret.Value.Value;
+    }
+}
+
+program.cs
+
+builder.Services.AddSingleton<IKeyVaultService, KeyVaultService>();
+
+
+using secret client 
+
+Fetch Specific Version (Advanced)
+
+var secret = await client.GetSecretAsync("DbConnectionString", "version-id");
+
+List All Secrets
+
+await foreach (var secretProperties in client.GetPropertiesOfSecretsAsync())
+{
+    Console.WriteLine(secretProperties.Name);
+}
+
+
+with memory cache
+
+
+private readonly IMemoryCache _cache;
+
+public async Task<string> GetSecretAsync(string name)
+{
+    if (!_cache.TryGetValue(name, out string value))
+    {
+        var secret = await _client.GetSecretAsync(name);
+        value = secret.Value.Value;
+
+        _cache.Set(name, value, TimeSpan.FromMinutes(10));
+    }
+
+    return value;
+}
+
+⚖️ SecretClient vs IConfiguration
+Feature			IConfiguration	SecretClient
+Easy setup		✅		❌
+Dynamic fetch		❌		✅
+Secret rotation		❌		✅
+Performance control	❌		✅
+Fine-grained access	❌		✅
+----------------------------------------------------------------
+
+
+
+
+
