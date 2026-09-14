@@ -1,0 +1,60 @@
+Step 1: Client requests arrive at the server. Thousands or even lakhs of users send HTTP requests to the same ASP.NET Core endpoint. These requests first reach Kestrel, the built-in web server, which is optimized to accept many simultaneous connections efficiently.
+
+Step 2: Kestrel handles connections asynchronously. Kestrel uses non-blocking socket operations, so it does not assign one thread per connection. Many open connections can exist at the same time without consuming thousands of threads.
+
+Step 3: A ThreadPool worker thread starts processing each request. The .NET ThreadPool gives an available worker thread to run middleware, routing, authentication, controller code, and initial business logic for the incoming request.
+
+Step 4: The request reaches an async I/O call. Example: await db.GetDataAsync() or await httpClient.GetAsync(). This means the application now needs to wait for an external resource such as SQL Server, Redis, another API, or disk.
+
+Step 5: await releases the worker thread immediately. Instead of blocking the thread during the wait, ASP.NET Core stores the remaining request logic as a continuation in CLR state machine and returns the thread back to the ThreadPool to process other requests.
+
+Step 6: The freed thread starts serving other requests. The same thread that handled Request #1 can now start Request #2, Request #3, and many more. This reuse is why 1000 threads can support far more than 1000 concurrent requests.
+
+Step 7: External I/O completes later. When the database or API finishes, the operating system signals completion. The .NET runtime then picks any available ThreadPool worker thread to continue processing the paused request.
+
+Step 8: Request resumes on a different thread if needed. ASP.NET Core has no SynchronizationContext, so the continuation does not need the original thread. Request #1 may start on Thread #10 and resume on Thread #88 without issue.
+
+Step 9: Request context still remains intact. Even though the thread changed, the request still keeps its HttpContext, user identity, trace ID, scoped services, and cancellation token. Logical request state flows across awaits.
+
+Step 10: Response is sent efficiently at scale. After async operations finish, the endpoint completes processing and returns the response. This model allows huge throughput because threads are used only for active CPU work, not wasted waiting. Blocking calls like .Result break this advantage by occupying threads unnecessarily.
+
+
+Clients
+  ↓
+Kestrel
+  ↓
+ThreadPool thread executes request
+  ↓
+await SQL/API
+  ↓
+Thread released
+  ↓
+IO completion event
+  ↓
+Any worker thread resumes
+  ↓
+Response
+
+Connection != Thread
+Request != Thread
+await != blocking
+Kestrel uses async sockets
+IOCP signals completion
+ThreadPool runs code, not waits
+Continuations resume on any thread
+No SynchronizationContext in ASP.NET Core
+.Result blocks scalability
+DB often bottleneck
+
+
+
+ASP.NET Core handles high RPS using
+Kestrel for non-blocking sockets,
+OS I/O Completion Ports (IOCP) for async network events,
+and the .NET ThreadPool for CPU work. 
+Threads are not tied to requests.
+Requests wait asynchronously for network/DB I/O, and worker threads process only active code paths, enabling very high concurrency.
+
+1000 threads can handle far more than 1000 requests because ASP.NET Core uses async I/O. When a request awaits database or HTTP calls, the thread returns to the pool instead of blocking. The request is stored as a continuation. Once I/O completes, any available ThreadPool thread resumes it. Since ASP.NET Core has no SynchronizationContext, it does not need the original thread. This allows high concurrency with limited threads.
+
+

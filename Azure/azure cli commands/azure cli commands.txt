@@ -1,0 +1,2 @@
+az login
+az account show -- it will show all account related details like subscription_id, environment name, tenant id etc.

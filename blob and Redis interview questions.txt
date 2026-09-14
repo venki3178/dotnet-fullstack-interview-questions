@@ -1,0 +1,43 @@
+🔷 Azure Blob Storage – Common Interview Questions
+1. What is Azure Blob Storage? Types of blobs?
+	Azure Blob Storage Object storage for unstructured data (images, videos, logs, backups)
+
+	Types:
+	Block Blob → most common (documents, media)
+	Append Blob → logging scenarios
+	Page Blob → VHD disks (VMs)
+
+
+
+2.What are storage tiers?
+
+Hot → frequent access
+Cool → infrequent access (cheaper storage, higher access cost)
+Archive → rarely accessed, high latency
+
+
+What is blob versioning / soft delete?
+Versioning → keeps history of changes
+Soft delete → recover deleted blobs 
+
+What is Azure Redis Cache?
+Azure Redis Cache In-memory key-value store. It improves performance of Read operations.
+
+
+Why Redis over in-memory cache?
+Distributed
+Scalable
+Shared across multiple instances
+
+
+
+what is difference between Blob and Redis ?
+
+👉 Real-world:
+
+Blob → store images
+Redis → cache image URLs / metadata
+
+
+How do you reduce DB load?
+Use Redis caching layer

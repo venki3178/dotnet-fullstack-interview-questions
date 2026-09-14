@@ -1,0 +1,15 @@
+🧠 Real Interview Answer (Strong One)
+
+"In microservices, we commonly use patterns like API Gateway, Database per Service, Event-Driven Architecture, and Saga for distributed transactions. For reliability, we implement Outbox pattern and Circuit Breaker with Polly. For scalability, we use CQRS and sometimes Event Sourcing. In migration scenarios, we use Strangler Fig pattern."
+
+🧠 What Top Companies Actually Use Together
+
+In real systems, patterns are combined:
+
+🔥 Typical Stack
+API Gateway
+EDA + Saga
+Outbox Pattern
+CQRS
+Circuit Breaker + Retry
+Database per Service

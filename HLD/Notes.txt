@@ -1,0 +1,116 @@
+🧠 Strong Interview Strategy (For YOU – 9 Years Exp)
+
+Don’t just memorize questions.
+
+👉 Master these 8 designs deeply:
+
+URL Shortener
+News Feed
+Chat System
+Payment System
+Uber
+Notification System
+Distributed Cache
+File Storage
+
+If you know these → you can solve 80% of interviews
+
+=============================================================
+
+🔥 Most Important Insight (Game Changer)
+
+👉 You don’t need to prepare 50 questions separately
+
+All 50 come from just 10 patterns:
+
+Read-heavy system → (Feed, YouTube)
+Write-heavy system → (Chat, Logging)
+Search system → (Google, Autocomplete)
+Storage system → (Drive, S3)
+Real-time system → (Uber, WhatsApp)
+Queue-based system → (Notifications)
+Analytics system → (Metrics)
+Geo system → (Maps)
+Transaction system → (Payments)
+Event-driven system → (Microservices
+
+-----------------------------------------------------------------
+
+
+🟢 1. Core “Must-Know” Questions (Most Frequently Asked)
+
+These appear in almost every company:
+
+Design URL Shortener (Bitly)
+Design Social Media Feed (Facebook / Twitter)
+Design Chat System (WhatsApp / Messenger)
+Design Video Streaming (YouTube / Netflix)
+Design File Storage (Google Drive / Dropbox)
+Design Rate Limiter
+Design Notification System
+Design Web Crawler
+Design Autocomplete / Typeahead
+Design Distributed Cache (Redis)
+
+👉 These are asked because they test scaling, caching, sharding, queues
+
+🟡 2. Real Product-Based Questions (Amazon / Meta / Google)
+Design Instagram
+Design Facebook Timeline
+Design Twitter
+Design LinkedIn
+Design TikTok / Reels system
+Design Google Search
+Design Google Docs (collaboration system)
+Design Gmail
+Design Slack / Teams
+Design Zoom / Video conferencing
+🟠 3. E-Commerce & Business Systems (Amazon Heavy 🔥)
+Design Amazon (e-commerce system)
+Design Order Management System
+Design Payment System
+Design Shopping Cart
+Design Recommendation System
+Design Inventory Management
+Design Flash Sale / Big Billion Day system
+Design Review & Rating System
+
+👉 Amazon strongly focuses on real-world scalable systems
+
+🔵 4. Infrastructure & Backend Systems (VERY IMPORTANT)
+Design Load Balancer
+Design CDN (Content Delivery Network)
+Design API Gateway
+Design Distributed Logging System
+Design Metrics & Monitoring System
+Design Task Scheduler / Cron System
+Design Distributed Queue (Kafka-like)
+Design Search Index (ElasticSearch)
+
+👉 These test your infra-level thinking (senior roles)
+
+🟣 5. Data-Intensive Systems (Big Tech Favorite)
+Design Analytics System (like Google Analytics)
+Design Data Pipeline (ETL system)
+Design Log Aggregation System
+Design Real-time Streaming System
+Design Recommendation Engine
+Design Ads Ranking System
+🔴 6. Ride Sharing / Geo Systems
+Design Uber / Ola
+Design Google Maps
+Design Food Delivery (Swiggy / Zomato)
+
+👉 Tests:
+
+Geo indexing
+Real-time tracking
+Matching algorithms
+⚫ 7. Modern / 2020+ Trending Questions (VERY IMPORTANT NOW)
+Design Real-time Collaboration Tool (Notion / Figma)
+Design Live Streaming System
+Design Online Gaming System
+Design AI/LLM Chat System (like ChatGPT)
+Design Event-Driven Microservices Platform
+
+👉 New trend: AI + real-time + event-driven systems

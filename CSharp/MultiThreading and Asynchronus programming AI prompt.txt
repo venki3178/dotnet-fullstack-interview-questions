@@ -1,0 +1,273 @@
+**Prompt: Learn Multithreading and Asynchronous Programming in C# (Detailed, Practical, Beginner to Advanced)**
+
+Act as a senior .NET architect and expert trainer. Teach me **Multithreading** and **Asynchronous Programming** in C# from beginner to advanced level in a clear, structured, real-world way.
+
+I am a developer who wants to deeply understand not just syntax, but also **how it works internally**, when to use each concept, performance implications, common mistakes, and interview-level knowledge.
+
+Please explain everything step-by-step using simple language first, then advanced technical depth.
+
+---
+
+## My Learning Goals
+
+Teach me the following topics in order:
+
+### 1. Foundations of Concurrency
+
+* What is a process?
+* What is a thread?
+* Difference between process vs thread
+* What is concurrency vs parallelism
+* How CPU cores affect threading
+* What is context switching
+* Why multithreading is needed in modern applications
+
+Use analogies and real-life examples.
+
+---
+
+### 2. Threading Basics in C#
+
+Teach:
+
+* `Thread` class
+* Creating manual threads
+* Foreground vs background threads
+* Thread lifecycle
+* Thread priorities
+* `Thread.Sleep()`
+* `Join()`
+
+Explain when direct Thread usage is outdated and when still useful.
+
+Include code examples.
+
+---
+
+### 3. Thread Pool
+
+Explain deeply:
+
+* What is ThreadPool?
+* Why it exists
+* How it reuses threads
+* Difference between creating new thread vs ThreadPool thread
+* Worker threads vs I/O completion threads
+* When ThreadPool grows/shrinks
+* How .NET manages ThreadPool internally
+
+Code examples:
+
+* `ThreadPool.QueueUserWorkItem()`
+* Performance comparison
+
+---
+
+### 4. Tasks and TPL (Task Parallel Library)
+
+Teach:
+
+* What is `Task`
+* Why Task replaced Thread in many scenarios
+* `Task.Run()`
+* Returning values with `Task<T>`
+* Waiting with `Wait()`
+* `Task.WhenAll()`
+* `Task.WhenAny()`
+* Parent-child tasks
+* Continuations
+
+Explain internal relation between Task and ThreadPool.
+
+---
+
+### 5. Asynchronous Programming (Most Important)
+
+Teach deeply:
+
+* What is async programming?
+* Why async is different from multithreading
+* What happens when using `async` / `await`
+* Is a new thread created?
+* What is non-blocking I/O?
+* Why async improves scalability
+
+Explain with real examples:
+
+* API calls
+* File reading
+* Database calls
+* HTTP requests
+
+---
+
+### 6. Internal Working of async/await
+
+Explain in depth:
+
+* Compiler transformation into state machine
+* Generated `MoveNext()`
+* Awaiter pattern
+* Continuation callbacks
+* Task completion sources
+
+Show simplified internal generated code.
+
+---
+
+### 7. Synchronization Context
+
+Teach clearly:
+
+* What is SynchronizationContext?
+* Why UI apps need it
+* WinForms / WPF behavior
+* Classic ASP.NET behavior
+* ASP.NET Core behavior
+* Why `ConfigureAwait(false)` matters
+
+Explain:
+
+* Deadlocks caused by `.Result` / `.Wait()`
+* How continuation returns to original thread
+
+---
+
+### 8. Race Conditions and Thread Safety
+
+Teach:
+
+* What is race condition
+* Shared memory problems
+* Atomic operations
+* `lock`
+* `Monitor`
+* `Mutex`
+* `Semaphore`
+* `SemaphoreSlim`
+* `Interlocked`
+
+Show practical examples.
+
+---
+
+### 9. Advanced Parallel Programming
+
+Teach:
+
+* `Parallel.For`
+* `Parallel.ForEach`
+* PLINQ
+* CancellationToken
+* Producer-consumer pattern
+* Concurrent collections:
+
+  * ConcurrentDictionary
+  * BlockingCollection
+  * ConcurrentQueue
+
+---
+
+### 10. Real ASP.NET Core Understanding
+
+Explain:
+
+* What happens when API request comes to controller
+* How thread handles request
+* What happens when controller method uses `await`
+* How thread returns to pool
+* How server handles thousands of users
+
+Example:
+
+```csharp
+[HttpGet]
+public async Task<IActionResult> Get()
+{
+    var data = await _repo.GetOrdersAsync();
+    return Ok(data);
+}
+```
+
+Explain each line internally.
+
+---
+
+### 11. Performance & Best Practices
+
+Teach:
+
+* CPU-bound vs I/O-bound work
+* When to use Task.Run
+* When NOT to use Task.Run
+* Async all the way
+* Avoid blocking calls
+* Minimize context switching
+* Reduce thread starvation
+
+---
+
+### 12. Common Interview Questions
+
+Give detailed answers for:
+
+* Difference between thread and task
+* Does async create new thread?
+* What is deadlock in async?
+* Explain await internally
+* ThreadPool vs Task.Run
+* What happens when await DB call?
+
+---
+
+### 13. Real-World Business Examples
+
+Give examples in:
+
+* Banking system
+* E-commerce checkout
+* Payment gateway
+* Insurance system
+* Chat app
+* File upload platform
+
+Explain how multithreading/async are used.
+
+---
+
+### 14. Practice Exercises
+
+Give beginner to advanced exercises with answers:
+
+* Create thread-safe counter
+* Download multiple URLs in parallel
+* Build queue processor
+* Simulate order processing system
+* Build rate limiter
+
+---
+
+### 15. Learning Roadmap
+
+Give me 30-day roadmap to master multithreading and async in C# with daily tasks.
+
+---
+
+## Teaching Style
+
+* Start simple, then deep dive
+* Use diagrams where useful
+* Use code samples
+* Explain internals visually
+* Mention common mistakes
+* Compare concepts in tables
+* Give memory tricks
+* Give real interview insights
+
+---
+
+## Final Goal
+
+After learning, I should confidently answer senior-level interview questions and build scalable high-performance C# applications.
+
+Start from Chapter 1 now.
