@@ -1,0 +1,33 @@
+1. BrowserRouter
+       ↓
+2. Routes / Route
+       ↓
+3. Link / NavLink
+       ↓
+4. useNavigate
+       ↓
+5. useParams
+       ↓
+6. useSearchParams
+       ↓
+7. Nested Routes
+       ↓
+8. Outlet
+       ↓
+9. Layout Routes
+       ↓
+10. Protected Routes
+       ↓
+11. Dynamic Routes
+       ↓
+12. Lazy Loading
+       ↓
+13. Data Routers
+       ↓
+14. Loaders
+       ↓
+15. Actions / Form handling
+       ↓
+16. Error boundaries
+       ↓
+17. Type-safe route architecture
